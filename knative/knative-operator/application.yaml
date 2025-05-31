@@ -16,7 +16,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: ops/argocd/kustomize/knative-operator
-    repoURL: 'https://github.com/shortlink-org/shortlink'
+    repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
   syncPolicy:
     automated:

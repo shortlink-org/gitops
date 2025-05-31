@@ -6,9 +6,9 @@ metadata:
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
     argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/boundaries/platform/logger
-    argocd-image-updater.argoproj.io/image-list: shortlink-logger=registry.gitlab.com/shortlink-org/shortlink/logger:0.x.x
+    argocd-image-updater.argoproj.io/image-list: shortlink-logger=registry.gitlab.com/shortlink-org/argocd/logger:0.x.x
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
-    argocd-image-updater.argoproj.io/git-repository: git@github.com:shortlink-org/shortlink.git
+    argocd-image-updater.argoproj.io/git-repository: git@github.com:shortlink-org/argocd.git
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -18,7 +18,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: ops/Helm/boundaries/platform/logger
-    repoURL: 'https://github.com/shortlink-org/shortlink'
+    repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
     helm:
       valueFiles:
