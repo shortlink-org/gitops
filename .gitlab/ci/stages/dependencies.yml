@@ -4,6 +4,7 @@ include:
 # CRD templates for ArgoCD
 prometheus-operator:crd:
   extends: .crd_templates
+  stage: deploy
   parallel:
     matrix:
       - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.77.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
@@ -37,6 +38,7 @@ prometheus-operator:crd:
 # CRD templates for ArgoCD
 istio:crd:
   extends: .crd_templates
+  stage: deploy
   variables:
     NAME: https://raw.githubusercontent.com/istio/istio/master/manifests/charts/base/crds/crd-all.gen.yaml
     APPLYSET: istio
