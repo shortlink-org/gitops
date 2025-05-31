@@ -17,3 +17,7 @@ The directory is structured as follows:
 ├── shortlink-shop     # ArgoCD applications for shop boundary components
 └── shortlink          # ArgoCD applications for common shortlink components
 ```
+
+#### Docs
+
+- [GitLab CI/CD Pipeline](.gitlab/ci/README.md) - Overview of the GitLab CI/CD pipeline for ArgoCD.
