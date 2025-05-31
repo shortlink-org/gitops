@@ -9,6 +9,7 @@ argo-redis:
           release_name: argo-redis
           helm_path: Helm/argo-redis
           namespace: argocd
+          kube_context: shortlink-org/argocd:$PROVIDER
           environment_url: https://argo.${ENVIRONMENT_URL}
     strategy: depend
   needs: []
@@ -33,3 +34,4 @@ argo-cd:
   needs: []
   rules:
     - when: manual
+
