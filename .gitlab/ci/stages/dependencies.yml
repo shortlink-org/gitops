@@ -79,7 +79,6 @@ prometheus-operator:crd:
           environment_url: $ENVIRONMENT_URL
     strategy: depend
   needs: []
-  retry: 1
   environment:
     name: "${PROVIDER}/prometheus-operator-crd"
     deployment_tier: production
