@@ -10,6 +10,12 @@ argo-redis:
   trigger:
     include:
       - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/helm_deploy@main
+        inputs:
+          provider: $PROVIDER
+          release_name: argo-redis
+          helm_path: Helm/argo-redis
+          namespace: argocd
+          environment_url: https://argo.${ENVIRONMENT_URL}
     strategy: depend
   needs: []
   rules:
@@ -28,6 +34,14 @@ argo-cd:
   trigger:
     include:
       - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/helm_deploy@main
+        inputs:
+          provider: $PROVIDER
+          release_name: argocd
+          helm_path: Helm/argocd
+          namespace: argocd
+          helm_arg: -f Helm/argocd/values.sops.yaml
+          environment_url: https://argo.${ENVIRONMENT_URL}
+          kube_context: shortlink-org/argocd:$PROVIDER
     strategy: depend
   needs: []
   rules:
