@@ -1,5 +1,5 @@
 include:
-  - local: .gitlab/ci/pipelines/addons/argocd/templates/crd.yml
+  - component: $CI_SERVER_FQDN/shortlink-orh/gitlab-templates/crd@main
 
 # CRD templates for ArgoCD
 prometheus-operator:crd:

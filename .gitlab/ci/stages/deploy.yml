@@ -8,7 +8,7 @@ argo-redis:
     ENVIRONMENT_URL: https://argo.${ENVIRONMENT_URL}
   trigger:
     include:
-      - local: '.gitlab/ci/pipelines/helm_deploy.yml'
+      - component: $CI_SERVER_FQDN/shortlink-orh/gitlab-templates/helm_deploy@main
     strategy: depend
   needs: []
   rules:
@@ -25,7 +25,7 @@ argo-cd:
     HELM_ARG: -f ${HELM_PATH}/values.sops.yaml
   trigger:
     include:
-      - local: '.gitlab/ci/pipelines/helm_deploy.yml'
+      - component: $CI_SERVER_FQDN/shortlink-orh/gitlab-templates/helm_deploy@main
     strategy: depend
   needs: []
   rules:
