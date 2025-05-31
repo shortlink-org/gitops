@@ -1,54 +1,110 @@
 include:
   - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
 
-# CRD templates for ArgoCD
+# CRD templates for Prometheus Operator
 prometheus-operator:crd:
-  extends:
-    - .crd_templates
-    - .matrix_deploy_provider
+  extends: .matrix_deploy_provider
   stage: deploy
-  parallel:
-    matrix:
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
-        APPLYSET: alertmanagerconfigs
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
-        APPLYSET: alertmanagers
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
-        APPLYSET: podmonitors
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml
-        APPLYSET: probes
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml
-        APPLYSET: prometheusagents
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
-        APPLYSET: prometheuses
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
-        APPLYSET: prometheusrules
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_scrapeconfigs.yaml
-        APPLYSET: scrapeconfigs
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
-        APPLYSET: servicemonitors
-      - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
-        APPLYSET: thanosrulers
+  trigger:
+    include:
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
+          applyset: alertmanagerconfigs
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml
+          applyset: alertmanagers
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml
+          applyset: podmonitors
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml
+          applyset: probes
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusagents.yaml
+          applyset: prometheusagents
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml
+          applyset: prometheuses
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml
+          applyset: prometheusrules
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_scrapeconfigs.yaml
+          applyset: scrapeconfigs
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml
+          applyset: servicemonitors
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
+          applyset: thanosrulers
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+    strategy: depend
+  needs: []
   retry: 1
   environment:
-    name: ${PROVIDER}/prometheus-operator-crd
+    name: "${PROVIDER}/prometheus-operator-crd"
     deployment_tier: production
-    url: $ENVIRONMENT_URL
+    url: "$ENVIRONMENT_URL"
     kubernetes:
       namespace: default
 
-# CRD templates for ArgoCD
+# CRD template for Istio
 istio:crd:
-  extends:
-    - .crd_templates
-    - .matrix_deploy_provider
+  extends: .matrix_deploy_provider
   stage: deploy
-  variables:
-    NAME: https://raw.githubusercontent.com/istio/istio/master/manifests/charts/base/crds/crd-all.gen.yaml
-    APPLYSET: istio
+  trigger:
+    include:
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          provider: $PROVIDER
+          name: https://raw.githubusercontent.com/istio/istio/master/manifests/charts/base/crds/crd-all.gen.yaml
+          applyset: istio
+          kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: $ENVIRONMENT_URL
+    strategy: depend
+  needs: []
   environment:
-    name: ${PROVIDER}/istio-crd
+    name: "${PROVIDER}/istio-crd"
     deployment_tier: production
-    url: $ENVIRONMENT_URL
+    url: "$ENVIRONMENT_URL"
     kubernetes:
       namespace: default
