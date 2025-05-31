@@ -1,0 +1,8 @@
+include:
+  - local: .gitlab/ci/workflows/matrix_deploy.yml
+  - local: .gitlab/ci/stages/**
+
+stages:
+  - .pre
+  - secrets
+  - deploy
