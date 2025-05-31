@@ -4,7 +4,7 @@ argo-redis:
   variables:
     PROVIDER: $PROVIDER
     RELEASE_NAME: argo-redis
-    HELM_PATH: ops/Helm/addons/argo/argo-redis
+    HELM_PATH: Helm/argo-redis
     HELM_NAMESPACE: argocd
     ENVIRONMENT_URL: https://argo.${ENVIRONMENT_URL}
   trigger:
@@ -21,7 +21,7 @@ argo-cd:
   variables:
     PROVIDER: $PROVIDER
     RELEASE_NAME: argocd
-    HELM_PATH: ops/Helm/addons/argo/argocd
+    HELM_PATH: Helm/argocd
     HELM_NAMESPACE: argocd
     ENVIRONMENT_URL: https://argo.${ENVIRONMENT_URL}
     HELM_ARG: -f ${HELM_PATH}/values.sops.yaml
