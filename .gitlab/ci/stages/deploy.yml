@@ -1,12 +1,6 @@
 argo-redis:
   extends: .matrix_deploy_provider
   stage: deploy
-  variables:
-    PROVIDER: $PROVIDER
-    RELEASE_NAME: argo-redis
-    HELM_PATH: Helm/argo-redis
-    HELM_NAMESPACE: argocd
-    ENVIRONMENT_URL: https://argo.${ENVIRONMENT_URL}
   trigger:
     include:
       - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/helm_deploy@main
@@ -24,13 +18,6 @@ argo-redis:
 argo-cd:
   extends: .matrix_deploy_provider
   stage: deploy
-  variables:
-    PROVIDER: $PROVIDER
-    RELEASE_NAME: argocd
-    HELM_PATH: Helm/argocd
-    HELM_NAMESPACE: argocd
-    ENVIRONMENT_URL: https://argo.${ENVIRONMENT_URL}
-    HELM_ARG: -f ${HELM_PATH}/values.sops.yaml
   trigger:
     include:
       - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/helm_deploy@main
@@ -40,8 +27,8 @@ argo-cd:
           helm_path: Helm/argocd
           namespace: argocd
           helm_arg: -f Helm/argocd/values.sops.yaml
-          environment_url: https://argo.${ENVIRONMENT_URL}
           kube_context: shortlink-org/argocd:$PROVIDER
+          environment_url: https://argo.${ENVIRONMENT_URL}
     strategy: depend
   needs: []
   rules:
