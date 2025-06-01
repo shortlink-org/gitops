@@ -32,6 +32,8 @@ prometheus-operator:crd:
       - NAME: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
         APPLYSET: thanosrulers
   retry: 1
+  rules:
+    - when: manual
   environment:
     name: ${PROVIDER}/prometheus-operator-crd
     deployment_tier: production
@@ -48,6 +50,8 @@ istio:crd:
   variables:
     NAME: https://raw.githubusercontent.com/istio/istio/master/manifests/charts/base/crds/crd-all.gen.yaml
     APPLYSET: istio
+  rules:
+    - when: manual
   environment:
     name: ${PROVIDER}/istio-crd
     deployment_tier: production
