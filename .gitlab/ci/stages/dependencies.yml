@@ -37,7 +37,6 @@ prometheus-operator:crd:
   environment:
     name: ${PROVIDER}/prometheus-operator-crd
     deployment_tier: production
-    url: $ENVIRONMENT_URL
     kubernetes:
       namespace: default
 
@@ -55,6 +54,5 @@ istio:crd:
   environment:
     name: ${PROVIDER}/istio-crd
     deployment_tier: production
-    url: $ENVIRONMENT_URL
     kubernetes:
       namespace: default
