@@ -44,11 +44,6 @@ prometheus-operator:crd:
 
   rules:
     - when: manual
-  environment:
-    name: ${PROVIDER}/prometheus-operator-crd
-    deployment_tier: production
-    kubernetes:
-      namespace: default
 
 ################################################################################
 # ISTIO · one child pipeline for the bundle
@@ -71,8 +66,3 @@ istio:crd:
 
   rules:
     - when: manual
-  environment:
-    name: ${PROVIDER}/istio-crd
-    deployment_tier: production
-    kubernetes:
-      namespace: default
