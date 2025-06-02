@@ -62,7 +62,7 @@ istio:crd:
         inputs:
           kube_context: $KUBE_CONTEXT
           applyset:     istio
-          manifest:     https://raw.githubusercontent.com/istio/istio/master/manifests/charts/base/crds/crd-all.gen.yaml
+          manifest:     https://raw.githubusercontent.com/istio/istio/refs/heads/master/manifests/charts/base/files/crd-all.gen.yaml
     strategy: depend
 
   needs: [ ]
