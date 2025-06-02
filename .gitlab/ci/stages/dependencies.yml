@@ -42,7 +42,6 @@ prometheus-operator:crd:
           manifest:     $CRD_URL
     strategy: depend     # parent waits for all child pipelines
 
-  retry: 1
   rules:
     - when: manual
   environment:
