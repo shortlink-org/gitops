@@ -29,15 +29,11 @@ prometheus-operator:crd:
       - CRD_URL: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
         CRD_APPLYSET: thanosrulers
 
-  # Variables available to every matrix row
-  variables:
-    KUBE_CONTEXT: shortlink-org/argocd:${PROVIDER}
-
   trigger:
     include:
       - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
         inputs:
-          kube_context: $KUBE_CONTEXT
+          kube_context: shortlink-org/argocd:${PROVIDER}
           applyset:     $CRD_APPLYSET
           manifest:     $CRD_URL
     strategy: depend     # parent waits for all child pipelines
@@ -53,14 +49,11 @@ istio:crd:
   extends: .matrix_deploy_provider
   stage: deploy
 
-  variables:
-    KUBE_CONTEXT: shortlink-org/argocd:${PROVIDER}
-
   trigger:
     include:
       - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
         inputs:
-          kube_context: $KUBE_CONTEXT
+          kube_context: shortlink-org/argocd:${PROVIDER}
           applyset:     istio
           manifest:     https://raw.githubusercontent.com/istio/istio/refs/heads/master/manifests/charts/base/files/crd-all.gen.yaml
     strategy: depend
