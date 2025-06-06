@@ -13,7 +13,7 @@ run:
     include:
       - local: .gitlab/ci/pipeline/environment.yml
     strategy: depend
-  tags:
+  tag:
     - gitlab-org-docker
   needs: []
   rules:
