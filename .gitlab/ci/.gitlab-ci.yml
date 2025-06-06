@@ -1,6 +1,6 @@
 include:
   - local: .gitlab/ci/workflows/matrix_deploy.yml
-  - local: .gitlab/ci/pipiline/environment.yml
+  - local: .gitlab/ci/pipeline/environment.yml
 
 stages:
   - .pre
