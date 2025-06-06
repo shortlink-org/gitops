@@ -5,6 +5,10 @@ prometheus:pipeline:
   extends: .matrix_deploy_provider
   stage: deploy
 
+  variables:
+    PROVIDER: $PROVIDER
+    ENVIRONMENT_URL: $ENVIRONMENT_URL
+
   trigger:
     include:
       - local: .gitlab/ci/pipeline/prometheus.yml
