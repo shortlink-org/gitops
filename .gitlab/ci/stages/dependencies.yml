@@ -1,7 +1,10 @@
 ################################################################################
 # PROMETHEUS-OPERATOR · fan-out one child pipeline per CRD
 ################################################################################
-.matrix_prometheus_crd:
+prometheus-operator:crd:
+  stage: deploy
+
+  # Parent job forks once for each CRD row ↓
   parallel:
     matrix:
       - CRD_URL: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagerconfigs.yaml
@@ -25,12 +28,6 @@
       - CRD_URL: https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.83.0/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml
         CRD_APPLYSET: thanosrulers
 
-prometheus-operator:crd:
-  extends:
-    - .matrix_deploy_provider
-    - .matrix_prometheus_crd
-  stage: deploy
-
   trigger:
     include:
       - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
@@ -48,7 +45,6 @@ prometheus-operator:crd:
 # ISTIO · one child pipeline for the bundle
 ################################################################################
 istio:crd:
-  extends: .matrix_deploy_provider
   stage: deploy
 
   trigger:

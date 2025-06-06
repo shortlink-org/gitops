@@ -1,5 +1,4 @@
 argo-redis:
-  extends: .matrix_deploy_provider
   stage: deploy
   trigger:
     include:
@@ -17,7 +16,6 @@ argo-redis:
     - when: manual
 
 argo-cd:
-  extends: .matrix_deploy_provider
   stage: deploy
   trigger:
     include:
