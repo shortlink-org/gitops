@@ -13,6 +13,7 @@ run:
     include:
       - local: .gitlab/ci/pipeline/environment.yml
     strategy: depend
+    forward:
+      pipeline_variables: true
+      yaml_variables: true
   needs: []
-  rules:
-    - when: manual
