@@ -1,8 +1,18 @@
 include:
   - local: .gitlab/ci/workflows/matrix_deploy.yml
-  - local: .gitlab/ci/pipeline/environment.yml
 
 stages:
   - .pre
-  - secrets
   - deploy
+
+run:
+  extends:
+    - .gitlab/ci/workflows/matrix_deploy.yml
+  stage: deploy
+  trigger:
+    include:
+      - local: .gitlab/ci/pipeline/environment.yml
+    strategy: depend
+  needs: []
+  rules:
+    - when: manual
