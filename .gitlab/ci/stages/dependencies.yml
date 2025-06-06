@@ -5,7 +5,7 @@ prometheus:pipeline:
   extends: .matrix_deploy_provider
 
   trigger:
-    - local: .gitlab/ci/pipeline/prometheus.yml
+    local: .gitlab/ci/pipeline/prometheus.yml
 
   needs: [ ]
   rules:
