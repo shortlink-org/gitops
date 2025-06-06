@@ -3,6 +3,7 @@
 ################################################################################
 prometheus:pipeline:
   extends: .matrix_deploy_provider
+  stage: deploy
 
   trigger:
     include:
