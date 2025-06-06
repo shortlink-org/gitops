@@ -1,8 +1,5 @@
-spec:
-  inputs:
-    kube_context:
-      description: "kubectl context (kubeconfig entry) to target"
-      type: string
+stage:
+  - deploy
 
 prometheus-operator:crd:
   stage: deploy
