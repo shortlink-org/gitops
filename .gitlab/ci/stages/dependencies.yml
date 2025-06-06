@@ -6,10 +6,6 @@ prometheus:pipeline:
 
   trigger:
     - local: .gitlab/ci/pipeline/prometheus.yml
-      include:
-        - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
-          inputs:
-            kube_context: shortlink-org/argocd:${PROVIDER}
 
   needs: [ ]
   rules:
