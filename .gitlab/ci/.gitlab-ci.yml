@@ -7,12 +7,14 @@ stages:
 
 run:
   extends:
-    - .gitlab/ci/workflows/matrix_deploy.yml
+    - .matrix_deploy_provider
   stage: deploy
   trigger:
     include:
       - local: .gitlab/ci/pipeline/environment.yml
     strategy: depend
+  tags:
+    - gitlab-org-docker
   needs: []
   rules:
     - when: manual
