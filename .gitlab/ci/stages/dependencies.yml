@@ -2,7 +2,7 @@
 # PROMETHEUS-OPERATOR · fan-out one child pipeline per CRD
 ################################################################################
 prometheus-operator:crd:
-  stage: deploy
+  stage: dependencies
 
   # Parent job forks once for each CRD row ↓
   parallel:
@@ -36,6 +36,9 @@ prometheus-operator:crd:
           applyset:     $CRD_APPLYSET
           manifest:     $CRD_URL
     strategy: depend     # parent waits for all child pipelines
+    forward:
+      pipeline_variables: true
+      yaml_variables: true
 
   needs: [ ]
   rules:
@@ -45,7 +48,7 @@ prometheus-operator:crd:
 # ISTIO · one child pipeline for the bundle
 ################################################################################
 istio:crd:
-  stage: deploy
+  stage: dependencies
 
   trigger:
     include:
@@ -55,6 +58,9 @@ istio:crd:
           applyset:     istio
           manifest:     https://raw.githubusercontent.com/istio/istio/refs/heads/master/manifests/charts/base/files/crd-all.gen.yaml
     strategy: depend
+    forward:
+      pipeline_variables: true
+      yaml_variables: true
 
   needs: [ ]
   rules:

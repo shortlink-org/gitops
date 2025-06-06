@@ -11,6 +11,9 @@ argo-redis:
           kube_context: shortlink-org/argocd:$PROVIDER
           environment_url: https://argo.${ENVIRONMENT_URL}
     strategy: depend
+    forward:
+      pipeline_variables: true
+      yaml_variables: true
   needs: []
   rules:
     - when: manual
@@ -29,6 +32,9 @@ argo-cd:
           kube_context: shortlink-org/argocd:$PROVIDER
           environment_url: https://argo.${ENVIRONMENT_URL}
     strategy: depend
+    forward:
+      pipeline_variables: true
+      yaml_variables: true
   needs: []
   rules:
     - when: manual
