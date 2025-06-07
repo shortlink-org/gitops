@@ -6,5 +6,6 @@ stages:
   - .pre
   - secrets
   - dependencies
+  - addons
   - deploy
   - application

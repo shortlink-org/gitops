@@ -1,0 +1,39 @@
+# CILIUM ===============================================================================================================
+cilium:
+  stage: addons
+  trigger:
+    include:
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/helm_deploy@main
+        inputs:
+          provider: $PROVIDER
+          release_name: cilium
+          helm_path: ops/Helm/cilium
+          namespace: kube-system
+          kube_context: shortlink-org/argocd:$PROVIDER
+    strategy: depend
+    forward:
+      pipeline_variables: true
+      yaml_variables: true
+  needs: []
+  rules:
+    - when: manual
+
+# metrics-server =======================================================================================================
+metrics-server:
+  stage: addons
+  trigger:
+    include:
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/helm_deploy@main
+        inputs:
+          provider: $PROVIDER
+          release_name: metrics-server
+          helm_path: ops/Helm/metrics-server
+          namespace: kube-system
+          kube_context: shortlink-org/argocd:$PROVIDER
+    strategy: depend
+    forward:
+      pipeline_variables: true
+      yaml_variables: true
+  needs: []
+  rules:
+    - when: manual
