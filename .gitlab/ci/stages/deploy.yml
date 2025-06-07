@@ -28,7 +28,7 @@ argo-cd:
           release_name: argocd
           helm_path: ops/Helm/argocd
           namespace: argocd
-          helm_arg: -f Helm/argocd/values.sops.yaml
+          helm_arg: -f ops/Helm/argocd/values.sops.yaml
           kube_context: shortlink-org/argocd:$PROVIDER
           environment_url: https://argo.${ENVIRONMENT_URL}
     strategy: depend
