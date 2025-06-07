@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./ops/argocd/kustomize/argocd-extension-metrics
+    argocd.argoproj.io/manifest-generate-paths: ./argocd/kustomize/argocd-extension-metrics
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,7 +15,7 @@ spec:
     namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/argocd/kustomize/argocd-extension-metrics
+    path: argocd/kustomize/argocd-extension-metrics
     repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
   syncPolicy:

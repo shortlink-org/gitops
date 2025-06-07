@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./ops/argocd/kustomize/sync-kafka-to-elasticsearch
+    argocd.argoproj.io/manifest-generate-paths: ./argocd/kustomize/sync-kafka-to-elasticsearch
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,7 +15,7 @@ spec:
     namespace: knative
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/argocd/kustomize/sync-kafka-to-elasticsearch
+    path: argocd/kustomize/sync-kafka-to-elasticsearch
     repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
   syncPolicy:

@@ -1,21 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: spicedb-operator
+  name: gateway-operator
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./ops/argocd/kustomize/auth/spicedb-operator
+    argocd.argoproj.io/manifest-generate-paths: ./argocd/kustomize/gateway-operator
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: shortlink
   destination:
     name: ''
-    namespace: spicedb-operator
+    namespace: gateway-operator
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/argocd/kustomize/auth/spicedb-operator
+    path: argocd/kustomize/gateway-operator
     repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
   syncPolicy:
@@ -23,12 +23,6 @@ spec:
       prune: true
       allowEmpty: true
       selfHeal: true
-    managedNamespaceMetadata:
-      labels:
-        istio-injection: enabled
-        pod-security.kubernetes.io/enforce: privileged
-        pod-security.kubernetes.io/enforce-version: latest
-        kubernetes.io/metadata.name: spicedb-operator
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true

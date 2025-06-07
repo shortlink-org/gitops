@@ -20,7 +20,7 @@ spec:
       source:
         repoURL: 'https://github.com/shortlink-org/shortlink'
         targetRevision: HEAD
-        path: ops/argocd/knative
+        path: argocd/knative
         directory:
           recurse: true
       destination:

@@ -20,7 +20,7 @@ spec:
       source:
         repoURL: 'https://github.com/shortlink-org/shortlink'
         targetRevision: HEAD
-        path: ops/argocd/boundaries/billing
+        path: argocd/boundaries/billing
         directory:
           recurse: true
       destination:

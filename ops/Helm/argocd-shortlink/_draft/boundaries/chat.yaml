@@ -20,7 +20,7 @@ spec:
       source:
         repoURL: 'https://github.com/shortlink-org/shortlink'
         targetRevision: HEAD
-        path: ops/argocd/boundaries/chat
+        path: argocd/boundaries/chat
         directory:
           recurse: true
       destination:

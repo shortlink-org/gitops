@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./ops/argocd/kustomize/knative-eventing
+    argocd.argoproj.io/manifest-generate-paths: ./argocd/kustomize/knative-eventing
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,7 +15,7 @@ spec:
     namespace: knative-eventing
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/argocd/kustomize/knative-eventing
+    path: argocd/kustomize/knative-eventing
     repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
   syncPolicy:

@@ -1,21 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gateway-operator
+  name: local-path-provisioner
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./ops/argocd/kustomize/gateway-operator
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: shortlink
   destination:
     name: ''
-    namespace: gateway-operator
+    namespace: storage
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/argocd/kustomize/gateway-operator
+    path: argocd/kustomize/local-path-provisioner
     repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
   syncPolicy:
@@ -23,6 +22,10 @@ spec:
       prune: true
       allowEmpty: true
       selfHeal: true
+    managedNamespaceMetadata:
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
+        pod-security.kubernetes.io/enforce-version: latest
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true

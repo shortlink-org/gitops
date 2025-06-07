@@ -36,7 +36,7 @@ spec:
       source:
         repoURL: 'https://github.com/shortlink-org/shortlink'
         targetRevision: '{{.head_sha}}'
-        path: ops/argocd/boundaries/link
+        path: argocd/boundaries/link
         directory:
           recurse: true
         helm:

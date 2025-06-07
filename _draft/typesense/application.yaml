@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./ops/argocd/kustomize/typesense
+    argocd.argoproj.io/manifest-generate-paths: ./argocd/kustomize/typesense
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,7 +15,7 @@ spec:
     namespace: typesense
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/argocd/kustomize/typesense
+    path: argocd/kustomize/typesense
     repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
   syncPolicy:
