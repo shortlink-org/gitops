@@ -1,0 +1,24 @@
+shortlink:
+  stage: application
+  variables:
+    PROVIDER: $PROVIDER
+    RELEASE_NAME: argocd-shortlink
+    HELM_PATH: ops/Helm/argocd-shortlink
+    HELM_NAMESPACE: argocd
+    ENVIRONMENT_URL: https://${ENVIRONMENT_URL}
+  trigger:
+    include:
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/helm_deploy@main
+        inputs:
+          provider: $PROVIDER
+          release_name: argocd-shortlink
+          helm_path: ops/Helm/argocd-shortlink
+          namespace: argocd
+          kube_context: shortlink-org/argocd:$PROVIDER
+    strategy: depend
+    forward:
+      pipeline_variables: true
+      yaml_variables: true
+  needs: []
+  rules:
+    - when: manual

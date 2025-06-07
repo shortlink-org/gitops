@@ -7,3 +7,4 @@ stages:
   - secrets
   - dependencies
   - deploy
+  - application
