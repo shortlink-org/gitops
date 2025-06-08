@@ -18,7 +18,7 @@ spec:
     spec:
       project: shortlink
       source:
-        repoURL: 'https://github.com/shortlink-org/shortlink'
+        repoURL: 'https://github.com/shortlink-org/argocd'
         targetRevision: HEAD
         path: argocd/infrastructure
         directory:
