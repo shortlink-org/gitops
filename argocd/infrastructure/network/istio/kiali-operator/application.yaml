@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./addons/gateway/kiali-operator
+    argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/addons/gateway/kiali-operator
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,8 +15,8 @@ spec:
     namespace: istio-system
     server: 'https://kubernetes.default.svc'
   source:
-    path: addons/gateway/kiali-operator
-    repoURL: 'https://github.com/shortlink-org/helm'
+    path: ops/Helm/addons/gateway/kiali-operator
+    repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
     helm:
       releaseName: kiali-operator
