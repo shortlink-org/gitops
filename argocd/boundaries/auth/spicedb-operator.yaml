@@ -16,7 +16,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: argocd/kustomize/auth/spicedb-operator
-    repoURL: 'https://github.com/shortlink-org/argocd'
+    repoURL: 'https://github.com/shortlink-org/helm'
     targetRevision: HEAD
   syncPolicy:
     automated:

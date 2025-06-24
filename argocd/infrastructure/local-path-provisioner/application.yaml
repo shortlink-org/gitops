@@ -15,7 +15,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: argocd/kustomize/local-path-provisioner
-    repoURL: 'https://github.com/shortlink-org/argocd'
+    repoURL: 'https://github.com/shortlink-org/helm'
     targetRevision: HEAD
   syncPolicy:
     automated:
