@@ -14,7 +14,7 @@ Kubernetes: `>= 1.30.0 || >= v1.30.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://argoproj.github.io/argo-helm | argo-rollouts | 2.39.5 |
+| https://argoproj.github.io/argo-helm | argo-rollouts | 2.39.6 |
 
 ## Values
 
@@ -41,7 +41,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="argo-rollouts--controller--resources--limits--cpu"><a href="./values.yaml#L16">argo-rollouts.controller.resources.limits.cpu</a></td>
+			<td id="argo-rollouts--controller--resources--limits--cpu"><a href="./values.yaml#L15">argo-rollouts.controller.resources.limits.cpu</a></td>
 			<td>
 string
 </td>
@@ -55,7 +55,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="argo-rollouts--controller--resources--limits--memory"><a href="./values.yaml#L17">argo-rollouts.controller.resources.limits.memory</a></td>
+			<td id="argo-rollouts--controller--resources--limits--memory"><a href="./values.yaml#L16">argo-rollouts.controller.resources.limits.memory</a></td>
 			<td>
 string
 </td>
@@ -69,7 +69,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="argo-rollouts--controller--resources--requests--cpu"><a href="./values.yaml#L19">argo-rollouts.controller.resources.requests.cpu</a></td>
+			<td id="argo-rollouts--controller--resources--requests--cpu"><a href="./values.yaml#L18">argo-rollouts.controller.resources.requests.cpu</a></td>
 			<td>
 string
 </td>
@@ -83,7 +83,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="argo-rollouts--controller--resources--requests--memory"><a href="./values.yaml#L20">argo-rollouts.controller.resources.requests.memory</a></td>
+			<td id="argo-rollouts--controller--resources--requests--memory"><a href="./values.yaml#L19">argo-rollouts.controller.resources.requests.memory</a></td>
 			<td>
 string
 </td>
@@ -97,7 +97,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="argo-rollouts--controller--trafficRouterPlugins--trafficRouterPlugins"><a href="./values.yaml#L10">argo-rollouts.controller.trafficRouterPlugins.trafficRouterPlugins</a></td>
+			<td id="argo-rollouts--controller--trafficRouterPlugins"><a href="./values.yaml#L9">argo-rollouts.controller.trafficRouterPlugins</a></td>
 			<td>
 string
 </td>
@@ -139,7 +139,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="argo-rollouts--metrics--enabled"><a href="./values.yaml#L23">argo-rollouts.metrics.enabled</a></td>
+			<td id="argo-rollouts--metrics--enabled"><a href="./values.yaml#L22">argo-rollouts.metrics.enabled</a></td>
 			<td>
 bool
 </td>
@@ -153,7 +153,7 @@ true
 			<td></td>
 		</tr>
 		<tr>
-			<td id="argo-rollouts--metrics--serviceMonitor--enabled"><a href="./values.yaml#L25">argo-rollouts.metrics.serviceMonitor.enabled</a></td>
+			<td id="argo-rollouts--metrics--serviceMonitor--enabled"><a href="./values.yaml#L24">argo-rollouts.metrics.serviceMonitor.enabled</a></td>
 			<td>
 bool
 </td>
