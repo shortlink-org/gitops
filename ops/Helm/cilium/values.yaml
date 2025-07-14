@@ -72,6 +72,8 @@ cilium:
         release: prometheus-operator
 
   operator:
+    replicas: 1
+
     rollOutPods: true
 
     dashboards:
