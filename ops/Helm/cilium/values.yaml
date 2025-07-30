@@ -30,8 +30,6 @@ cilium:
 
     hostNamespaceOnly: true
 
-  enableCiliumEndpointSlice: true
-
   ipam:
     mode: kubernetes
 
