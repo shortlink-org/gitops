@@ -14,7 +14,7 @@ Kubernetes: `>= 1.30.0 || >= v1.30.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://argoproj.github.io/argo-helm | argo-cd | 8.1.4 |
+| https://argoproj.github.io/argo-helm | argo-cd | 8.2.4 |
 | https://argoproj.github.io/argo-helm | argocd-apps | 2.0.2 |
 | https://argoproj.github.io/argo-helm | argocd-image-updater | 0.12.3 |
 
@@ -2129,6 +2129,20 @@ string
 			<td></td>
 		</tr>
 		<tr>
+			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/force-ssl-redirect""><a href="./values.yaml#L125">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/force-ssl-redirect"</a></td>
+			<td>
+string
+</td>
+			<td>
+				<div style="max-width: 300px;">
+<pre lang="json">
+"true"
+</pre>
+</div>
+			</td>
+			<td></td>
+		</tr>
+		<tr>
 			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/secure-backends""><a href="./values.yaml#L126">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/secure-backends"</a></td>
 			<td>
 string
@@ -2144,20 +2158,6 @@ string
 		</tr>
 		<tr>
 			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/ssl-passthrough""><a href="./values.yaml#L121">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/ssl-passthrough"</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"false"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/ssl-redirect""><a href="./values.yaml#L125">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/ssl-redirect"</a></td>
 			<td>
 string
 </td>

@@ -122,7 +122,7 @@ argo-cd:
         nginx.ingress.kubernetes.io/configuration-snippet: |-
           proxy_ssl_server_name on;
           proxy_ssl_name $host;
-        nginx.ingress.kubernetes.io/ssl-redirect: "true"
+        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/secure-backends: "true"
         nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
         nginx.ingress.kubernetes.io/enable-opentelemetry: "true"
