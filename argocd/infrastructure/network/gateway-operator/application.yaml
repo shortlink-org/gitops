@@ -16,7 +16,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: argocd/kustomize/gateway-operator
-    repoURL: 'https://github.com/shortlink-org/helm'
+    repoURL: 'https://github.com/shortlink-org/argocd'
     targetRevision: HEAD
   syncPolicy:
     automated:
