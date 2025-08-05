@@ -14,7 +14,7 @@ Kubernetes: `>= 1.30.0 || >= v1.30.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://argoproj.github.io/argo-helm | argo-rollouts | 2.40.2 |
+| https://argoproj.github.io/argo-helm | argo-rollouts | 2.40.3 |
 
 ## Values
 
@@ -91,20 +91,6 @@ string
 				<div style="max-width: 300px;">
 <pre lang="json">
 "50Mi"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="argo-rollouts--controller--trafficRouterPlugins"><a href="./values.yaml#L9">argo-rollouts.controller.trafficRouterPlugins</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"- name: \"argoproj-labs/gatewayAPI\"\n  location: \"https://github.com/argoproj-labs/rollouts-plugin-trafficrouter-gatewayapi/releases/download/v0.3.0/gateway-api-plugin-linux-amd64\""
 </pre>
 </div>
 			</td>

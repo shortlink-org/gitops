@@ -14,7 +14,7 @@ Kubernetes: `>= 1.30.0 || >= v1.30.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://argoproj.github.io/argo-helm | argo-cd | 8.2.4 |
+| https://argoproj.github.io/argo-helm | argo-cd | 8.2.5 |
 | https://argoproj.github.io/argo-helm | argocd-apps | 2.0.2 |
 | https://argoproj.github.io/argo-helm | argocd-image-updater | 0.12.3 |
 
@@ -2073,34 +2073,6 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/backend-protocol""><a href="./values.yaml#L120">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/backend-protocol"</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"HTTP"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/configuration-snippet""><a href="./values.yaml#L122">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/configuration-snippet"</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"proxy_ssl_server_name on;\nproxy_ssl_name $host;"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
 			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/enable-opentelemetry""><a href="./values.yaml#L128">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/enable-opentelemetry"</a></td>
 			<td>
 string
@@ -2116,48 +2088,6 @@ string
 		</tr>
 		<tr>
 			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/enable-owasp-core-rules""><a href="./values.yaml#L127">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/enable-owasp-core-rules"</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"true"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/force-ssl-redirect""><a href="./values.yaml#L125">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/force-ssl-redirect"</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"true"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/secure-backends""><a href="./values.yaml#L126">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/secure-backends"</a></td>
-			<td>
-string
-</td>
-			<td>
-				<div style="max-width: 300px;">
-<pre lang="json">
-"true"
-</pre>
-</div>
-			</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td id="argo-cd--server--ingress--annotations--"nginx--ingress--kubernetes--io/ssl-passthrough""><a href="./values.yaml#L121">argo-cd.server.ingress.annotations."nginx.ingress.kubernetes.io/ssl-passthrough"</a></td>
 			<td>
 string
 </td>
