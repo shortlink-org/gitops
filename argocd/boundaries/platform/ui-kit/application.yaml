@@ -17,7 +17,7 @@ spec:
     namespace: shortlink-platform
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/Helm/boundaries/platform/ui-kit
+    path: ops/Helm/ui-kit
     repoURL: 'https://github.com/shortlink-org/ui-kit'
     targetRevision: HEAD
     helm:
