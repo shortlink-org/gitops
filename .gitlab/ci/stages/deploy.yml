@@ -8,7 +8,7 @@ argo-redis:
           release_name: argo-redis
           helm_path: ops/Helm/argo-redis
           namespace: argocd
-          kube_context: shortlink-org/argocd:$PROVIDER
+          kube_context: shortlink-org/gitops:$PROVIDER
           environment_url: https://argo.${ENVIRONMENT_URL}
     strategy: depend
     forward:
@@ -29,7 +29,7 @@ argo-cd:
           helm_path: ops/Helm/argocd
           namespace: argocd
           helm_arg: -f ops/Helm/argocd/values.sops.yaml
-          kube_context: shortlink-org/argocd:$PROVIDER
+          kube_context: shortlink-org/gitops:$PROVIDER
           environment_url: https://argo.${ENVIRONMENT_URL}
     strategy: depend
     forward:

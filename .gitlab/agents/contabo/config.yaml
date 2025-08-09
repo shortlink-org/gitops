@@ -14,7 +14,7 @@ gitops:
     # No authentication mechanisms are currently supported.
     # The `id` is a path to a Git repository with Kubernetes resource definitions
     # in YAML or JSON format.
-  - id: "shortlink-org/argocd"
+  - id: "shortlink-org/gitops"
     # Namespace to use if not set explicitly in object manifest.
     # Also used for inventory ConfigMap objects.
     default_namespace: argocd

@@ -14,7 +14,7 @@ shortlink:
           release_name: argocd-shortlink
           helm_path: ops/Helm/argocd-shortlink
           namespace: argocd
-          kube_context: shortlink-org/argocd:$PROVIDER
+          kube_context: shortlink-org/gitops:$PROVIDER
     strategy: depend
     forward:
       pipeline_variables: true

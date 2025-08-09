@@ -32,7 +32,7 @@ prometheus-operator:crd:
     include:
       - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
         inputs:
-          kube_context: shortlink-org/argocd:$PROVIDER
+          kube_context: shortlink-org/gitops:$PROVIDER
           applyset:     $CRD_APPLYSET
           manifest:     $CRD_URL
     strategy: depend     # parent waits for all child pipelines

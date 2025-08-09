@@ -9,7 +9,7 @@ cilium:
           release_name: cilium
           helm_path: ops/Helm/cilium
           namespace: kube-system
-          kube_context: shortlink-org/argocd:$PROVIDER
+          kube_context: shortlink-org/gitops:$PROVIDER
     strategy: depend
     forward:
       pipeline_variables: true
@@ -29,7 +29,7 @@ metrics-server:
           release_name: metrics-server
           helm_path: ops/Helm/metrics-server
           namespace: kube-system
-          kube_context: shortlink-org/argocd:$PROVIDER
+          kube_context: shortlink-org/gitops:$PROVIDER
     strategy: depend
     forward:
       pipeline_variables: true
