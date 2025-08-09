@@ -16,7 +16,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: argocd/kustomize/sync-kafka-to-elasticsearch
-    repoURL: 'https://github.com/shortlink-org/argocd'
+    repoURL: 'https://github.com/shortlink-org/gitops'
     targetRevision: HEAD
   syncPolicy:
     automated:

@@ -9,7 +9,7 @@ spec:
         autoscaling.knative.dev/minScale: "1"
     spec:
       containers:
-        - image: registry.gitlab.com/shortlink-org/argocd/kafka-to-elasticsearch
+        - image: registry.gitlab.com/shortlink-org/gitops/kafka-to-elasticsearch
           resources:
             requests:
               memory: "30Mi"

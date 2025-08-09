@@ -330,7 +330,7 @@ string
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-"https://github.com/shortlink-org/argocd"
+"https://github.com/shortlink-org/gitops"
 </pre>
 </div>
 			</td>
@@ -2038,7 +2038,7 @@ string
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-"https://github.com/shortlink-org/argocd/raw/main/boundaries/platform/argocd-extension-docs/ui/dist/extension.tar"
+"https://github.com/shortlink-org/gitops/raw/main/boundaries/platform/argocd-extension-docs/ui/dist/extension.tar"
 </pre>
 </div>
 			</td>

@@ -16,7 +16,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: argocd/kustomize/opencost
-    repoURL: 'https://github.com/shortlink-org/argocd'
+    repoURL: 'https://github.com/shortlink-org/gitops'
     targetRevision: HEAD
   syncPolicy:
     automated:

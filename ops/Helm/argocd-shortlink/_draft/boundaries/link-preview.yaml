@@ -34,7 +34,7 @@ spec:
     spec:
       project: shortlink
       source:
-        repoURL: 'https://github.com/shortlink-org/argocd'
+        repoURL: 'https://github.com/shortlink-org/gitops'
         targetRevision: '{{.head_sha}}'
         path: argocd/boundaries/link
         directory:

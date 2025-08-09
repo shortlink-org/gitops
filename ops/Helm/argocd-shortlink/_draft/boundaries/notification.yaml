@@ -18,7 +18,7 @@ spec:
     spec:
       project: shortlink
       source:
-        repoURL: 'https://github.com/shortlink-org/argocd'
+        repoURL: 'https://github.com/shortlink-org/gitops'
         targetRevision: HEAD
         path: argocd/boundaries/notification
         directory:

@@ -1,23 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: knative-eventing
+  name: shortlink-marketing-landing
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./argocd/kustomize/knative-eventing
+    argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/boundaries/marketing/landing
+    argocd-image-updater.argoproj.io/image-list: registry.gitlab.com/shortlink-org/gitops/landing:0.x.x
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
+    argocd-image-updater.argoproj.io/git-repository: git@github.com:shortlink-org/argocd.git
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: shortlink
   destination:
     name: ''
-    namespace: knative-eventing
+    namespace: shortlink-marketing
     server: 'https://kubernetes.default.svc'
   source:
-    path: argocd/kustomize/knative-eventing
-    repoURL: 'https://github.com/shortlink-org/gitops'
+    path: ops/Helm/landing
+    repoURL: 'https://github.com/shortlink-org/marketing'
     targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+  project: shortlink
   syncPolicy:
     automated:
       prune: true
