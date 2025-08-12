@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: shortlink-auth-auth
+  name: shortlink-auth-ui
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
     argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/boundaries/auth/auth
-    argocd-image-updater.argoproj.io/image-list: shortlink-auth=registry.gitlab.com/shortlink-org/gitops/auth:0.x.x
+    argocd-image-updater.argoproj.io/image-list: shortlink-auth=registry.gitlab.com/shortlink-org/gitops/auth-ui:0.x.x
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
     argocd-image-updater.argoproj.io/git-repository: git@github.com:shortlink-org/argocd.git
   finalizers:
@@ -17,7 +17,7 @@ spec:
     namespace: auth
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/Helm/auth
+    path: ops/Helm/auth-ui
     repoURL: 'https://github.com/shortlink-org/auth'
     targetRevision: HEAD
     helm:
