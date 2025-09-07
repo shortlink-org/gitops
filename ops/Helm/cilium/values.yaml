@@ -5,6 +5,9 @@ cilium:
   k8sServiceHost: localhost
   k8sServicePort: 7445
 
+  hostFirewall:
+    enabled: true
+
   cni:
     # Without it, Cilium will delete the Istio-CNI files that sidecars (or ztunnel) need, breaking pod networking.
     exclusive: false
