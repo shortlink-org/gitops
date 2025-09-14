@@ -18,7 +18,7 @@ services:
 
   novu-api:
     <<: *network
-    image: ghcr.io/novuhq/novu/api:0.24.2
+    image: ghcr.io/novuhq/novu/api:0.24.7
     container_name: novu-api
     restart: unless-stopped
     ports:
