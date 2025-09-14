@@ -71,3 +71,7 @@ for an information team about cases for updated ADR.
 #### MongoDB
 
 - [ADR-0007](./decisions/0007-mongodb.md) - MongoDB
+
+#### Docker Compose
+
+- [ADR-0034](./decisions/0034-docker-compose.md) - Docker Compose
