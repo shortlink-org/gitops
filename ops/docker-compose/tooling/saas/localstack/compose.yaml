@@ -9,7 +9,7 @@ services:
 
   localstack:
     <<: *network
-    image: localstack/localstack:3.2.3
+    image: localstack/localstack:4.8.0
     container_name: localstack
     environment:
       - SERVICES=s3
