@@ -1,4 +1,14 @@
-## PostgreSQL
+# PostgreSQL
+
+## How to use
+
+### Include in your compose file
+
+```yaml
+# compose.yaml
+include:
+  - path: https://github.com/shortlink-org/gitops.git#main:ops/docker-compose/database/postgres/compose.yaml
+```
 
 ### Load Balancer
 
@@ -43,7 +53,6 @@ graph LR
   style L2 fill:#d4f0c4,stroke:#50b840
   style L3 fill:#d4f0c4,stroke:#50b840
 ```
-
 ### Backup
 
 - ❌ [wal-g](https://github.com/wal-g/wal-g/blob/master/docs/PostgreSQL.md) is a tool for PostgreSQL backup and restore.
