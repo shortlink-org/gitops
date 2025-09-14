@@ -9,8 +9,6 @@ services:
 
   prometheus:
     <<: *network
-    depends_on:
-      - coredns
     image: prom/prometheus:v3.5.0
     profiles:
       - observability
@@ -30,8 +28,6 @@ services:
 
   node-exporter:
     <<: *network
-    depends_on:
-      - coredns
     image: prom/node-exporter:latest
     container_name: node-exporter
     restart: always

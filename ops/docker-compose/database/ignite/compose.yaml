@@ -1,8 +1,6 @@
 services:
 
   ignite:
-    depends_on:
-      - coredns
     image: apacheignite/ignite:3.0.0
     restart: on-failure
     container_name: ignite

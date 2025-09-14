@@ -9,8 +9,6 @@ services:
 
   minio:
     <<: *network
-    depends_on:
-      - coredns
     image: minio/minio:RELEASE.2024-11-07T00-52-20Z
     command: server --console-address ":9001" /data
     restart: on-failure
@@ -28,8 +26,6 @@ services:
       retries: 60
 
   createbuckets:
-    depends_on:
-      - coredns
       - minio
     image: minio/minio:RELEASE.2024-11-07T00-52-20Z
     environment:

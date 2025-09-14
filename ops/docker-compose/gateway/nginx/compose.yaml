@@ -2,7 +2,6 @@ services:
 
   nginx:
     depends_on:
-      - coredns
       - default_backend
     image: nginx:1.29-alpine
     container_name: nginx
@@ -21,8 +20,6 @@ services:
       - ./ops/docker-compose/gateway/nginx/conf/templates:/etc/nginx/templates
 
   default_backend:
-    depends_on:
-      - coredns
     image: nginx:1.29-alpine
     container_name: default_backend
     init: true

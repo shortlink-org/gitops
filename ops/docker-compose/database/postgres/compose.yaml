@@ -9,8 +9,6 @@ services:
 
   postgres:
     <<: *network
-    depends_on:
-      - coredns
     image: ghcr.io/dbsystel/postgresql-partman:17
     init: true
     restart: on-failure
@@ -36,8 +34,6 @@ services:
 
   postgres-exporter:
     <<: *network
-    depends_on:
-      - coredns
     image: quay.io/prometheuscommunity/postgres-exporter
     container_name: postgres-exporter
     restart: always

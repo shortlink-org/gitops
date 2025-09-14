@@ -1,8 +1,6 @@
 services:
 
   edgedb:
-    depends_on:
-      - coredns
     image: edgedb/edgedb:6
     restart: on-failure
     container_name: edgedb

@@ -9,8 +9,6 @@ services:
 
   scylla:
     <<: *network
-    depends_on:
-      - coredns
     image: scylladb/scylla
     container_name: scylla
     init: true

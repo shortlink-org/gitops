@@ -23,7 +23,6 @@ x-airflow-common:
     - ./ops/docker-compose/tooling/saas/airflow/logs:/opt/airflow/logs
     - ./ops/docker-compose/tooling/saas/airflow/plugins:/opt/airflow/plugins
   user: "${AIRFLOW_UID:-50000}:0"
-  depends_on:
     &airflow-common-depends-on
     redis:
       condition: service_healthy
@@ -67,7 +66,6 @@ services:
       timeout: 10s
       retries: 5
     restart: always
-    depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
@@ -81,7 +79,6 @@ services:
       timeout: 10s
       retries: 5
     restart: always
-    depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
@@ -102,7 +99,6 @@ services:
       # See https://airflow.apache.org/docs/docker-stack/entrypoint.html#signal-propagation
       DUMB_INIT_SETSID: "0"
     restart: always
-    depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
@@ -116,7 +112,6 @@ services:
       timeout: 10s
       retries: 5
     restart: always
-    depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
@@ -228,7 +223,6 @@ services:
       timeout: 10s
       retries: 5
     restart: always
-    depends_on:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully

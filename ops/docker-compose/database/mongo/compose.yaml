@@ -9,8 +9,6 @@ services:
 
   mongo: &mongo
     <<: *network
-    depends_on:
-      - coredns
     image: bitnami/mongodb:8.0
     restart: on-failure
     container_name: mongo

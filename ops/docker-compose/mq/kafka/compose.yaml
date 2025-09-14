@@ -14,7 +14,6 @@ services:
     init: true
     restart: always
     depends_on:
-      - coredns
       - kafka_1
       - kafka_2
       - kafka_3
@@ -62,7 +61,6 @@ services:
     ports:
       - 8084:8083
     depends_on:
-      - coredns
       - kafka_1
       - kafka_2
       - kafka_3
@@ -91,7 +89,6 @@ services:
     ports:
       - 8088:8080
     depends_on:
-      - coredns
       - kafka_1
       - kafka_2
       - kafka_3

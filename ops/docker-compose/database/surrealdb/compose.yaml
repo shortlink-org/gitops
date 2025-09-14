@@ -9,8 +9,6 @@ services:
 
   surrealdb:
     <<: *network
-    depends_on:
-      - coredns
     image: surrealdb/surrealdb:latest
     command: start --user INSERT_USERNAME_HERE --pass INSERT_PASSWORD_HERE file:/data/database.db
     init: true

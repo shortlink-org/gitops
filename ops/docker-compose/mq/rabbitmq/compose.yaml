@@ -9,8 +9,6 @@ services:
 
   rabbitmq:
     <<: *network
-    depends_on:
-      - coredns
     image: rabbitmq:4.1-management-alpine
     hostname: rabbitmq
     container_name: rabbitmq

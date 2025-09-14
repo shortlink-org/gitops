@@ -17,8 +17,6 @@ services:
 
   fdb-coordinator:
     <<: [*network, *config]
-    depends_on:
-      - coredns
     container_name: fdb-coordinator
     init: true
     ports:
@@ -28,7 +26,6 @@ services:
   fdb-server-1:
     <<: [*network, *config]
     depends_on:
-      - coredns
       - fdb-coordinator
     image: foundationdb/foundationdb
     container_name: fdb-server-1
@@ -37,7 +34,6 @@ services:
   fdb-server-2:
     <<: [*network, *config]
     depends_on:
-      - coredns
       - fdb-coordinator
     image: foundationdb/foundationdb
     container_name: fdb-server-2
@@ -46,7 +42,6 @@ services:
   fdb-server-3:
     <<: [*network, *config]
     depends_on:
-      - coredns
       - fdb-coordinator
     image: foundationdb/foundationdb
     container_name: fdb-server-3

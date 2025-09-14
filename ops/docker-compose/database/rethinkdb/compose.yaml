@@ -1,8 +1,6 @@
 services:
 
   rethinkdb:
-    depends_on:
-      - coredns
     image: rethinkdb:2.4-buster-slim
     init: true
     restart: on-failure

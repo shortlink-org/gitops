@@ -9,8 +9,6 @@ services:
 
   aerospikedb:
     <<: *network
-    depends_on:
-      - coredns
     image: aerospike/aerospike-server:8.1.0.0
     restart: on-failure
     container_name: aerospikedb

@@ -75,7 +75,6 @@ prometheus.scrape "scrape_metrics" {
   // Scrape metrics from services running on the same host
   targets = [
     // {"__address__" = "localhost:12345", group = "infrastructure", service = "alloy"},
-    {"__address__" = "coredns:9153",    group = "infrastructure", service = "coredns"},
     {"__address__" = "traefik:8082",    group = "infrastructure", service = "traefik"},
   ]
 

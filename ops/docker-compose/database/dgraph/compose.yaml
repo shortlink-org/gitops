@@ -9,8 +9,6 @@ services:
 
   zero:
     <<: *network
-    depends_on:
-      - coredns
     image: dgraph/dgraph:v24.1.4
     volumes:
       - type: volume
@@ -26,8 +24,6 @@ services:
 
   server:
     <<: *network
-    depends_on:
-      - coredns
     image: dgraph/dgraph:v24.1.4
     volumes:
       - type: volume
@@ -43,8 +39,6 @@ services:
 
   ratel:
     <<: *network
-    depends_on:
-      - coredns
     image: dgraph/dgraph:v24.1.4
     volumes:
       - type: volume

@@ -9,8 +9,6 @@ services:
 
   trino:
     <<: *network
-    depends_on:
-      - coredns
     image: trinodb/trino
     container_name: trino
     restart: on-failure

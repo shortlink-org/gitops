@@ -10,8 +10,6 @@ services:
 
   dragonfly:
     <<: *network
-    depends_on:
-      - coredns
     image: docker.dragonflydb.io/dragonflydb/dragonfl
     ulimits:
       memlock: -1

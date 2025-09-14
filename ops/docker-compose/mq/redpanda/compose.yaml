@@ -9,8 +9,6 @@ services:
 
   redpanda:
     <<: *network
-    depends_on:
-      - coredns
     # NOTE: Please use the latest version here!
     image: docker.redpanda.com/vectorized/redpanda:v24.2.9
     container_name: redpanda
@@ -41,7 +39,6 @@ services:
   console:
     <<: *network
     depends_on:
-      - coredns
       - redpanda
     image: docker.redpanda.com/vectorized/console:v2.7.2
     container_name: console

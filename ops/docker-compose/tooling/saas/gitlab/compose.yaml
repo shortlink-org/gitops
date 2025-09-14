@@ -33,7 +33,6 @@ services:
   gitlab:
     <<: *network
     depends_on:
-      - coredns
       - gitlab_postgres
     image: gitlab/gitlab-ce:18.3.2-ce.0
     hostname: localhost
@@ -72,7 +71,6 @@ services:
     <<: *network
     depends_on:
       - gitlab
-      - coredns
     image: gitlab/gitlab-runner:alpine
     container_name: gitlab-runner
     restart: always

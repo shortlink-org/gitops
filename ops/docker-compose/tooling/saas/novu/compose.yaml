@@ -1,6 +1,4 @@
 x-network: &network
-  depends_on:
-    - coredns
     - mongo
     - redis
   networks:

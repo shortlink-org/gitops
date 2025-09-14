@@ -9,8 +9,6 @@ services:
 
   victoria-metrics:
     <<: *network
-    depends_on:
-      - coredns
     image: victoriametrics/victoria-metrics
     init: true
     restart: on-failure

@@ -9,8 +9,6 @@ services:
 
   clickhouse:
     <<: *network
-    depends_on:
-      - coredns
     image: clickhouse/clickhouse-server
     init: true
     restart: on-failure

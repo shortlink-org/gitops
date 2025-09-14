@@ -9,8 +9,6 @@ services:
 
   mysql:
     <<: *network
-    depends_on:
-      - coredns
     image: mysql:9
     init: true
     restart: on-failure

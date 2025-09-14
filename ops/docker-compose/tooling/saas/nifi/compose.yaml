@@ -9,8 +9,6 @@ services:
 
   nifi:
     <<: *network
-    depends_on:
-      - coredns
     image: apache/nifi:2.5.0
     container_name: nifi
     init: true

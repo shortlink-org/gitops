@@ -14,7 +14,6 @@ services:
   pulsar-init:
     <<: *network
     depends_on:
-      - coredns
       - zookeeper
     image: apachepulsar/pulsar:latest
     container_name: pulsar-init
@@ -31,7 +30,6 @@ services:
   bookie:
     <<: *network
     depends_on:
-      - coredns
       - zookeeper
       - pulsar-init
     image: apachepulsar/pulsar:latest
@@ -49,7 +47,6 @@ services:
   broker:
     <<: *network
     depends_on:
-      - coredns
       - zookeeper
       - pulsar-init
     image: apachepulsar/pulsar:latest
@@ -75,7 +72,6 @@ services:
   pulsar-manager:
     <<: *network
     depends_on:
-      - coredns
       - zookeeper
       - pulsar-init
     image: apachepulsar/pulsar-manager:v0.4.0
@@ -90,7 +86,6 @@ services:
   pulsar-manager-add-user:
     <<: *network
     depends_on:
-      - coredns
       - pulsar-manager
     image: curlimages/curl:latest
     environment:

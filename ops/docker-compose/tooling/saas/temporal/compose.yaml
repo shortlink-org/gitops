@@ -14,7 +14,6 @@ services:
   temporal:
     <<: *network
     depends_on:
-      - coredns
       - elasticsearch
       - cassandra
     image: temporalio/auto-setup:1.28.1
@@ -39,7 +38,6 @@ services:
   temporal-admin-tools:
     <<: *network
     depends_on:
-      - coredns
       - temporal
     image: temporalio/admin-tools:1.24.2-tctl-1.18.1-cli-0.13.2
     restart: on-failure
@@ -53,7 +51,6 @@ services:
   temporal-ui:
     <<: *network
     depends_on:
-      - coredns
       - temporal
     image: temporalio/ui:2.40.0
     restart: on-failure

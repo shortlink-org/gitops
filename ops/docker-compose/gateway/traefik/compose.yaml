@@ -9,8 +9,6 @@ services:
 
   traefik:
     <<: *network
-    depends_on:
-      - coredns
     image: traefik:v3.5
     profiles:
       - gateway

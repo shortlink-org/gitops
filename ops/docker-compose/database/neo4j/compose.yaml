@@ -9,8 +9,6 @@ services:
 
   neo4j:
     <<: *network
-    depends_on:
-      - coredns
     image: neo4j:2025.08.0
     restart: on-failure
     hostname: neo4j

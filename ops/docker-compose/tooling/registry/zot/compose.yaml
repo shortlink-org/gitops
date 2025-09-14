@@ -1,8 +1,6 @@
 services:
 
   registry:
-    depends_on:
-      - coredns
     image: ghcr.io/project-zot/zot-linux-amd64:latest
     container_name: registry
     restart: on-failure

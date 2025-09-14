@@ -9,8 +9,6 @@ services:
 
   tarantool:
     <<: *network
-    depends_on:
-      - coredns
     image: tarantool/tarantool
     init: true
     restart: on-failure
