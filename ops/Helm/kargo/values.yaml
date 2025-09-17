@@ -17,7 +17,7 @@ kargo:
 
     argocd:
       urls:
-        - https://argocd.shortlink.best
+        - https://argo.shortlink.best
 
     resources:
       limits:
