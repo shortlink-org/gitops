@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/addons/argo/kargo
+    argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/kargo
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,7 +15,7 @@ spec:
     namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/Helm/addons/argo/kargo
+    path: ops/Helm/kargo
     repoURL: 'https://github.com/shortlink-org/gitops'
     targetRevision: HEAD
     helm:
