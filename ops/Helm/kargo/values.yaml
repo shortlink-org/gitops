@@ -8,7 +8,7 @@ kargo:
 
   api:
     adminAccount:
-      enabled: false
+      enabled: true
 
     oidc:
       enabled: false
