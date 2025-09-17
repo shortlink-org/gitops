@@ -3,14 +3,15 @@ kargo:
         adminAccount:
             #ENC[AES256_GCM,data:MzPpinWS,iv:+3RPlxP3+ym6AYTUzUlxLCkmRotbXmfMlpMH/1aJTyY=,tag:HBQrDOlA0ZmSEP9h2vsYIw==,type:comment]
             passwordHash: ENC[AES256_GCM,data:HTqpPHtXHFbRCmcC05qhgtQjMMY5IE1OKZlTOGm1B6ccx4wz4oX4ER/JXRCjQeX1CUh/DPOQOf3F4bl2,iv:ny/kBygcxCV1PuoTzm1PZlftBiOIJ7r+fsAUA0rj60g=,tag:AWDWdGwQTQiRJEXPGWHGvw==,type:str]
+            tokenSigningKey: ENC[AES256_GCM,data:m/WOHf2mEGg44cR5qAILqqcDSw5xCCzzC4SEmnOiwNuwXMNhm+6i+w==,iv:aHK4KxcrKZiumecLIvb0xScYgRz69ywwUrlHE+NMwhU=,tag:pCTcHDiRsWeXybEhSZ8BvQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2025-09-17T21:13:21Z"
-    mac: ENC[AES256_GCM,data:FWiW3tc1BZQf9l9aGn/sihR6tJw9SYcZ7F1pjRctH8EKONkDJTuv2vvm/Mu9He4iUx2ySqT3sXCyklhM+vQQLeaDN2kvcMpFYWW3oHRko/pshTCnLdEm120iH94XKGK4IE5NE3KTtrYm24rZzvwGSfnn0dlpJrVewd3JagxFMtY=,iv:aLJdNvCr3eR1nJ2UYGh+G0In/fXeus/Fi7vkcsXZ6FA=,tag:G4smqNPkGuNriSqeEppV8Q==,type:str]
+    lastmodified: "2025-09-17T21:20:28Z"
+    mac: ENC[AES256_GCM,data:zTxw1HIPbFrOfEspcPWJzDe9/K0GdfsFNRrrb15hkoaUsZqLcIl9fUu0q19cluJDd0EtmX/XiE0z6V7Yb29z6Xvwog6aEogJoDeQxYbgHFKg5ZouX/Yox+x9bLoHvnqZcBTnKV2qKGWP7njxux8mkpl56ow9RO9yUEAYX1QMUAk=,iv:NWWplrVIwG8qf9UToU4vUcUlVER89YlKb9C2bes4Zmk=,tag:BesYthPRQmRKt1TcDFUFtw==,type:str]
     pgp:
         - created_at: "2025-09-17T21:12:35Z"
           enc: |-
