@@ -9,7 +9,7 @@ services:
 
   postgres:
     <<: *network
-    image: ghcr.io/dbsystel/postgresql-partman:17
+    image: ghcr.io/dbsystel/postgresql-partman:18
     init: true
     restart: on-failure
     container_name: postgres
