@@ -34,7 +34,7 @@ bool
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-false
+true
 </pre>
 </div>
 			</td>
@@ -48,7 +48,7 @@ string
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-"https://argocd.shortlink.best"
+"https://argo.shortlink.best"
 </pre>
 </div>
 			</td>

@@ -15,8 +15,8 @@ spec:
     namespace: shortlink-link
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/Helm/boundaries/link/common
-    repoURL: 'https://github.com/shortlink-org/gitops'
+    path: ops/Helm/common
+    repoURL: 'https://github.com/shortlink-org/shortlink'
     targetRevision: HEAD
     helm:
       valueFiles:
