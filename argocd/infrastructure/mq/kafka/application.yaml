@@ -16,7 +16,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: ops/Helm/addons/mq/kafka
-    repoURL: 'https://github.com/shortlink-org/gitops'
+    repoURL: 'https://github.com/shortlink-org/helm'
     targetRevision: HEAD
     helm:
       releaseName: kafka
