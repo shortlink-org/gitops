@@ -17,7 +17,7 @@ spec:
     namespace: shortlink-link
     server: 'https://kubernetes.default.svc'
   source:
-    path: proxy/ops/proxy
+    path: boundaries/proxy/ops/proxy
     repoURL: 'https://github.com/shortlink-org/shortlink'
     targetRevision: HEAD
     helm:
