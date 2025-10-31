@@ -14,7 +14,7 @@ Kubernetes: `>= 1.30.0 || >= v1.30.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| oci://registry-1.docker.io/bitnamicharts | redis | 23.1.3 |
+| oci://registry-1.docker.io/bitnamicharts | redis | 23.2.2 |
 
 ## Values
 
