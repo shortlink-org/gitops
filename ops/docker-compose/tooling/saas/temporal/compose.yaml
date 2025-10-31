@@ -16,7 +16,7 @@ services:
     depends_on:
       - elasticsearch
       - cassandra
-    image: temporalio/auto-setup:1.29.0
+    image: temporalio/auto-setup:1.29.1
     restart: on-failure
     container_name: temporal
     environment:
