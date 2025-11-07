@@ -14,9 +14,9 @@ Kubernetes: `>= 1.30.0 || >= v1.30.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://argoproj.github.io/argo-helm | argo-cd | 9.0.5 |
+| https://argoproj.github.io/argo-helm | argo-cd | 9.1.0 |
 | https://argoproj.github.io/argo-helm | argocd-apps | 2.0.2 |
-| https://argoproj.github.io/argo-helm | argocd-image-updater | 0.13.0 |
+| https://argoproj.github.io/argo-helm | argocd-image-updater | 0.14.0 |
 
 ## Values
 
