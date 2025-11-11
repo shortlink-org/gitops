@@ -3,9 +3,11 @@ services:
   nginx:
     depends_on:
       - default_backend
-    image: nginx:1.29-alpine
+    image: nginx:1.29-alpine-otel
     container_name: nginx
     init: true
+    environment:
+      OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-http://grafana-tempo.grafana:4317}
     ports:
       - "80:80"
       - "443:443"
