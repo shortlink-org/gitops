@@ -3,7 +3,7 @@ services:
   nginx:
     depends_on:
       - default_backend
-    image: nginx:1.25-otel
+    image: nginx:1.29-alpine-otel
     container_name: nginx
     init: true
     environment:
