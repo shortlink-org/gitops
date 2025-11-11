@@ -23,13 +23,6 @@ spec:
     helm:
       valueFiles:
         - values.yaml
-      values: |
-        ingress:
-          annotations:
-            nginx.ingress.kubernetes.io/enable-opentelemetry: "true"
-        deploy:
-          env:
-            OTEL_EXPORTER_OTLP_ENDPOINT: http://grafana-tempo.grafana:4317
   project: shortlink
   syncPolicy:
     automated:
