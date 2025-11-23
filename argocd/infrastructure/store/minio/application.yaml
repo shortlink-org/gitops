@@ -16,7 +16,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: ops/Helm/addons/store/minio
-    repoURL: 'https://github.com/shortlink-org/gitops'
+    repoURL: 'https://github.com/shortlink-org/helm'
     targetRevision: HEAD
     helm:
       releaseName: minio
@@ -53,6 +53,7 @@ spec:
       kind: ClusterPolicy
       jqPathExpressions:
         - .spec.rules[] | select(.name|test("autogen-."))
-    - group: ''
-      kind: Secret
+    - kind: Secret
       name: console-sa-secret
+      jqPathExpressions:
+        - .data
