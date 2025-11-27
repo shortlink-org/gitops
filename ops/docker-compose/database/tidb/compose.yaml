@@ -63,7 +63,7 @@ services:
       - pd0
       - pd1
       - pd2
-    image: pingcap/tikv:v8.5.3
+    image: pingcap/tikv:v8.5.4
     command:
       - --addr=0.0.0.0:20160
       - --advertise-addr=tikv0:20160
@@ -79,7 +79,7 @@ services:
       - pd0
       - pd1
       - pd2
-    image: pingcap/tikv:v8.5.3
+    image: pingcap/tikv:v8.5.4
     command:
       - --addr=0.0.0.0:20160
       - --advertise-addr=tikv1:20160
@@ -95,7 +95,7 @@ services:
       - pd0
       - pd1
       - pd2
-    image: pingcap/tikv:v8.5.3
+    image: pingcap/tikv:v8.5.4
     command:
       - --addr=0.0.0.0:20160
       - --advertise-addr=tikv2:20160
