@@ -9,7 +9,7 @@ services:
 
   zookeeper:
     <<: *network
-    image: confluentinc/cp-zookeeper:7.9.4
+    image: confluentinc/cp-zookeeper:7.9.5
     hostname: zookeeper
     container_name: zookeeper
     init: true
