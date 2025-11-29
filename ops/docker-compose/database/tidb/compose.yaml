@@ -8,7 +8,7 @@ x-network: &network
 services:
   pd0:
     <<: *network
-    image: pingcap/pd:v8.5.3
+    image: pingcap/pd:v8.5.4
     ports:
       - "2379"
     command:
@@ -25,7 +25,7 @@ services:
 
   pd1:
     <<: *network
-    image: pingcap/pd:v8.5.3
+    image: pingcap/pd:v8.5.4
     ports:
       - "2379"
     command:
@@ -42,7 +42,7 @@ services:
 
   pd2:
     <<: *network
-    image: pingcap/pd:v8.5.3
+    image: pingcap/pd:v8.5.4
     ports:
       - "2379"
     command:
