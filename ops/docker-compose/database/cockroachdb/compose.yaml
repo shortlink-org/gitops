@@ -10,7 +10,7 @@ services:
   cockroachdb-1:
     <<: *network
     hostname: cockroachdb-1
-    image: cockroachdb/cockroach:v25.4.0
+    image: cockroachdb/cockroach:v25.4.1
     command: [ "start", "--insecure", "--accept-sql-without-tls", "--join=cockroachdb-1,cockroachdb-2,cockroachdb-3" ]
     restart: on-failure
     container_name: cockroachdb-1
@@ -21,7 +21,7 @@ services:
   cockroachdb-2:
     <<: *network
     hostname: cockroachdb-2
-    image: cockroachdb/cockroach:v25.4.0
+    image: cockroachdb/cockroach:v25.4.1
     command: [ "start", "--insecure", "--accept-sql-without-tls", "--join=cockroachdb-1,cockroachdb-2,cockroachdb-3" ]
     restart: on-failure
     container_name: cockroachdb-2
@@ -29,7 +29,7 @@ services:
   cockroachdb-3:
     <<: *network
     hostname: cockroachdb-3
-    image: cockroachdb/cockroach:v25.4.0
+    image: cockroachdb/cockroach:v25.4.1
     command: [ "start", "--insecure", "--accept-sql-without-tls", "--join=cockroachdb-1,cockroachdb-2,cockroachdb-3" ]
     restart: on-failure
     container_name: cockroachdb-3
