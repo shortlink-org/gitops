@@ -111,29 +111,33 @@ argo-cd:
         enabled: true
 
     ingress:
+      enabled: false
+
+    # Gateway API HTTPRoute configuration
+    httproute:
       enabled: true
+      labels: { }
+      annotations: { }
 
-      ingressClassName: nginx
+      # Attach to external-gateway / istio-system, HTTPS listener
+      parentRefs:
+        - name: external-gateway
+          namespace: istio-system
+          sectionName: https
 
-      annotations:
-        cert-manager.io/cluster-issuer: cert-manager-production
-#        nginx.ingress.kubernetes.io/backend-protocol: HTTP
-#        nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-#        nginx.ingress.kubernetes.io/configuration-snippet: |-
-#          proxy_ssl_server_name on;
-#          proxy_ssl_name $host;
-#        nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-#        nginx.ingress.kubernetes.io/secure-backends: "true"
-        nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
-        nginx.ingress.kubernetes.io/enable-opentelemetry: "true"
+      # Public hostname for Argo CD
+      hostnames:
+        - argo.shortlink.best
 
-      hostname: argo.shortlink.best
-
-      tls: false
-      extraTls:
-        - secretName: argo-ingress-tls
-          hosts:
-            - argo.shortlink.best
+      # Route all paths to argocd-server Service
+      rules:
+        - matches:
+            - path:
+                type: PathPrefix
+                value: /
+          backendRefs:
+            - name: argocd-server
+              port: 80
 
     rbac:
       policy.csv: |
@@ -260,11 +264,11 @@ argo-cd:
             type: RuntimeDefault
         env:
           - name: HELM_SECRETS_VERSION
-            value: "4.6.11"
+            value: "4.7.4"
           - name: KUBECTL_VERSION
-            value: "1.34.1"
+            value: "1.34.2"
           - name: VALS_VERSION
-            value: "0.42.4"
+            value: "0.42.6"
           - name: SOPS_VERSION
             value: "3.11.0"
         args:
