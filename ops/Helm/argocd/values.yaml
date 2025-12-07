@@ -119,10 +119,9 @@ argo-cd:
       labels: { }
       annotations: { }
 
-      # Attach to external-gateway / istio-system, HTTPS listener
       parentRefs:
         - name: external-gateway
-          namespace: istio-system
+          namespace: istio-ingress
           sectionName: https
 
       # Public hostname for Argo CD
