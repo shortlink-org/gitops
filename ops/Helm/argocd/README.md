@@ -14,9 +14,9 @@ Kubernetes: `>= 1.30.0 || >= v1.30.0-0`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://argoproj.github.io/argo-helm | argo-cd | 9.1.0 |
+| https://argoproj.github.io/argo-helm | argo-cd | 9.1.6 |
 | https://argoproj.github.io/argo-helm | argocd-apps | 2.0.2 |
-| https://argoproj.github.io/argo-helm | argocd-image-updater | 0.14.0 |
+| https://argoproj.github.io/argo-helm | argocd-image-updater | 1.0.1 |
 
 ## Values
 
@@ -1338,7 +1338,7 @@ string
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-"4.6.5"
+"4.6.11"
 </pre>
 </div>
 			</td>
@@ -1366,7 +1366,7 @@ string
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-"1.33.0"
+"1.34.1"
 </pre>
 </div>
 			</td>
@@ -1394,7 +1394,7 @@ string
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-"0.41.1"
+"0.42.4"
 </pre>
 </div>
 			</td>
@@ -1422,7 +1422,7 @@ string
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-"3.10.2"
+"3.11.0"
 </pre>
 </div>
 			</td>
@@ -1926,7 +1926,7 @@ string
 			<td>
 				<div style="max-width: 300px;">
 <pre lang="json">
-"https://github.com/argoproj-labs/rollout-extension/releases/download/v0.3.5/extension.tar"
+"https://github.com/argoproj-labs/rollout-extension/releases/download/v0.3.7/extension.tar"
 </pre>
 </div>
 			</td>
