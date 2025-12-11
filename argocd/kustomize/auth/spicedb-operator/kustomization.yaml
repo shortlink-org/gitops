@@ -10,7 +10,7 @@ resources:
 
 images:
   - name: ghcr.io/authzed/spicedb-operator
-    newTag: v1.21.0
+    newTag: v1.22.0
 
 patches:
   - target:
