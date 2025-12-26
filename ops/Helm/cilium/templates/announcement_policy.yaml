@@ -4,6 +4,8 @@ metadata:
   name: default-l2-announcement-policy
   namespace: kube-system
 spec:
-  interfaces: []
+  serviceSelector:
+    matchLabels:
+      expose: "public"
   externalIPs: true
   loadBalancerIPs: true
