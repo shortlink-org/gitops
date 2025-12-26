@@ -9,7 +9,7 @@ services:
 
   aerospikedb:
     <<: *network
-    image: aerospike/aerospike-server:8.1.0.1
+    image: aerospike/aerospike-server:8.1.0.2
     restart: on-failure
     container_name: aerospikedb
     init: true
