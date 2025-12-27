@@ -1,7 +1,12 @@
-apiVersion: cilium.io/v2alpha1
+apiVersion: cilium.io/v2
 kind: CiliumLoadBalancerIPPool
 metadata:
-  name: default-pool
+  name: public-45-10-161-18
 spec:
   blocks:
-    - cidr: 192.168.1.128/25
+    - start: "45.10.161.18"
+      stop:  "45.10.161.18"
+  serviceSelector:
+    matchLabels:
+      io.kubernetes.service.namespace: istio-ingress
+      io.kubernetes.service.name: external-gateway-istio
