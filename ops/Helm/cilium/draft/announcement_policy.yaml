@@ -3,6 +3,8 @@ kind: CiliumL2AnnouncementPolicy
 metadata:
   name: announce-istio-gateway
 spec:
+  loadBalancerIPs: true
+
   serviceSelector:
     matchLabels:
       io.kubernetes.service.namespace: istio-ingress
