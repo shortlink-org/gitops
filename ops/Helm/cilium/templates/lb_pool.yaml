@@ -4,4 +4,8 @@ metadata:
   name: default-pool
 spec:
   blocks:
-    - cidr: 192.168.1.128/25
+    - start: "45.10.161.18"
+      stop: "45.10.161.18"
+  serviceSelector:
+    matchLabels:
+      gateway.networking.k8s.io/gateway-name: external-gateway
