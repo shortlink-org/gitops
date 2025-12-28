@@ -7,7 +7,7 @@ spec:
 
   serviceSelector:
     matchLabels:
-      io.kubernetes.service.namespace: istio-ingress
+      gateway.networking.k8s.io/gateway-name: external-gateway
 
   interfaces:
     - ens18
