@@ -17,7 +17,7 @@ spec:
     namespace: shortlink-marketing
     server: 'https://kubernetes.default.svc'
   source:
-    path: landing/ops/Helm/landing
+    path: landing/ops/helm/landing
     repoURL: 'https://github.com/shortlink-org/marketing'
     targetRevision: HEAD
     helm:
