@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
-  name: default-pool
+  name: external-gateway
 spec:
   blocks:
     - start: "45.10.161.18"
