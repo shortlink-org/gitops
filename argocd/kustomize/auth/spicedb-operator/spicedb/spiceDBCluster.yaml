@@ -8,7 +8,7 @@ spec:
   config:
     replicas: 1
     datastoreEngine: postgres
-    image: 'ghcr.io/authzed/spicedb:v1.48.0'
+    image: ghcr.io/authzed/spicedb:v1.48.0
   secretName: shortlink-spicedb-config
   patches:
     - kind: Deployment
@@ -28,12 +28,39 @@ spec:
                     limits:
                       memory: "512Mi"
                       cpu: "200m"
+
+                  # FIX: make probes less aggressive, avoid startup connection refused
+                  readinessProbe:
+                    exec:
+                      command:
+                        - grpc_health_probe
+                        - -v
+                        - -addr=localhost:50051
+                    initialDelaySeconds: 15
+                    timeoutSeconds: 5
+                    periodSeconds: 10
+                    successThreshold: 1
+                    failureThreshold: 6
+
+                  livenessProbe:
+                    exec:
+                      command:
+                        - grpc_health_probe
+                        - -v
+                        - -addr=localhost:50051
+                    initialDelaySeconds: 90
+                    timeoutSeconds: 5
+                    periodSeconds: 10
+                    successThreshold: 1
+                    failureThreshold: 5
+
                   env:
                     - name: SPICEDB_DATASTORE_CONN_URI
                       valueFrom:
                         secretKeyRef:
                           name: spicedb-postgres-pguser-spicedb
                           key: uri
+
                     - name: SPICEDB_DISPATCH_CACHE_METRICS
                       value: "true"
                     - name: SPICEDB_DISPATCH_CLUSTER_METRICS
@@ -42,12 +69,14 @@ spec:
                       value: "true"
                     - name: SPICEDB_METRICS_ENABLED
                       value: "true"
+
                     - name: SPICEDB_OTEL_PROVIDER
                       value: otlpgrpc
                     - name: SPICEDB_OTEL_SAMPLE_RATIO
                       value: "1"
                     - name: OTEL_EXPORTER_OTLP_ENDPOINT
                       value: "http://grafana-tempo.grafana:4317"
+
     - kind: Job
       patch:
         spec:
