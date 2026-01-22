@@ -1,0 +1,22 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: GRPCRoute
+metadata:
+  name: spicedb-grpc
+spec:
+  parentRefs:
+    - name: external-gateway
+      namespace: istio-ingress
+
+  rules:
+    - matches:
+        - method:
+            service: authzed.api.v1.SchemaService
+        - method:
+            service: authzed.api.v1.PermissionsService
+        - method:
+            service: authzed.api.v1.WatchService
+        - method:
+            service: authzed.api.v1.ExperimentalService
+      backendRefs:
+        - name: shortlink
+          port: 50051
