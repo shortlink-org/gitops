@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kratos
+  name: oathkeeper
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/kratos
+    argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/oathkeeper
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,20 +15,14 @@ spec:
     namespace: auth
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/Helm/kratos
+    path: ops/Helm/oathkeeper
     repoURL: 'https://github.com/shortlink-org/auth'
     targetRevision: HEAD
     helm:
-      releaseName: kratos
+      releaseName: oathkeeper
       valueFiles:
         - values.yaml
-
-        # ### Method 2: Fetch the gpg/age key from kubernetes secret
-        # secrets+gpg-import-kubernetes://<namespace>/<secret-name>#<key-name>.asc?<relative/path/to/the/encrypted/secrets.yaml>
-        # secrets+age-import-kubernetes://<namespace>/<secret-name>#<key-name>.txt?<relative/path/to/the/encrypted/secrets.yaml>
-        # Example Method 2: (Assumptions: namespace=argocd, secret-name=sops-gpg, key-name=app, secret.yaml is in the root folder)
-        - secrets+gpg-import-kubernetes://argocd/sops-gpg#sops.asc?secret.sops.yaml
-        - secrets+gpg-import-kubernetes://argocd/sops-gpg#sops.asc?courier.sops.yaml
+        - secrets+gpg-import-kubernetes://argocd/sops-gpg#sops.asc?jwks.sops.yaml
   syncPolicy:
     automated:
       prune: true
@@ -37,7 +31,6 @@ spec:
     managedNamespaceMetadata:
       labels:
         istio-injection: enabled
-        # TODO: tuning https://kubernetes.io/docs/concepts/security/pod-security-admission/
         pod-security.kubernetes.io/enforce: privileged
         pod-security.kubernetes.io/enforce-version: latest
     syncOptions:
@@ -55,11 +48,3 @@ spec:
       kind: ClusterPolicy
       jqPathExpressions:
         - .spec.rules[] | select(.name|test("autogen-."))
-    - kind: Secret
-      name: kratos-postgres-pguser-grafana
-      jqPathExpressions:
-        - .data
-    - kind: Secret
-      name: kratos-postgres-pguser-kratos
-      jqPathExpressions:
-        - .data
