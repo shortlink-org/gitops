@@ -22,7 +22,9 @@ spec:
       releaseName: oathkeeper
       valueFiles:
         - values.yaml
-        - secrets+gpg-import-kubernetes://argocd/sops-gpg#sops.asc?jwks.sops.yaml
+      fileParameters:
+        - name: oathkeeper.mutatorIdTokenJWKs
+          path: secrets+gpg-import-kubernetes://argocd/sops-gpg#sops.asc?jwks.sops.json
   syncPolicy:
     automated:
       prune: true
