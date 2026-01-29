@@ -9,7 +9,7 @@ services:
 
   zero:
     <<: *network
-    image: dgraph/dgraph:v25.1.0
+    image: dgraph/dgraph:v25.2.0
     volumes:
       - type: volume
         source: database
@@ -24,7 +24,7 @@ services:
 
   server:
     <<: *network
-    image: dgraph/dgraph:v25.1.0
+    image: dgraph/dgraph:v25.2.0
     volumes:
       - type: volume
         source: database
@@ -39,7 +39,7 @@ services:
 
   ratel:
     <<: *network
-    image: dgraph/dgraph:v25.1.0
+    image: dgraph/dgraph:v25.2.0
     volumes:
       - type: volume
         source: database
