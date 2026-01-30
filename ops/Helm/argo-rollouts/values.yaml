@@ -6,9 +6,11 @@ argo-rollouts:
   controller:
     replicas: 1
 
-#    trafficRouterPlugins: |-
-#      - name: "argoproj-labs/gatewayAPI"
-#        location: "https://github.com/argoproj-labs/rollouts-plugin-trafficrouter-gatewayapi/releases/download/v0.6.0/gateway-api-plugin-linux-amd64"
+    # Gateway API plugin for traffic routing with HTTPRoute/GRPCRoute
+    # Docs: https://rollouts-plugin-trafficrouter-gatewayapi.readthedocs.io/
+    trafficRouterPlugins: |-
+      - name: "argoproj-labs/gatewayAPI"
+        location: "https://github.com/argoproj-labs/rollouts-plugin-trafficrouter-gatewayapi/releases/download/v0.10.0/gateway-api-plugin-linux-amd64"
 
     resources:
       limits:
