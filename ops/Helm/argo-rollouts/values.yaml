@@ -8,7 +8,7 @@ argo-rollouts:
 
     # Gateway API plugin for traffic routing with HTTPRoute/GRPCRoute
     # Docs: https://rollouts-plugin-trafficrouter-gatewayapi.readthedocs.io/
-    trafficRouterPlugins: |-
+    trafficRouterPlugins:
       - name: "argoproj-labs/gatewayAPI"
         location: "https://github.com/argoproj-labs/rollouts-plugin-trafficrouter-gatewayapi/releases/download/v0.10.0/gateway-api-plugin-linux-amd64"
 
