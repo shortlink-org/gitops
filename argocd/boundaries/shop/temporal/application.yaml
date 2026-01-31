@@ -31,6 +31,7 @@ spec:
       labels:
         pod-security.kubernetes.io/enforce: privileged
         pod-security.kubernetes.io/enforce-version: latest
+        shortlink-org/trust-bundle: enabled
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
