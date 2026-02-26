@@ -12,17 +12,7 @@ cilium:
   enableIPv4Masquerade: true
 
   loadBalancer:
-    mode: dsr
-    # dsrDispatch:
-    #  + opt - Use the most efficient load balancing method available on the platform. This is the default and recommended mode.
-    #  + geneve - Use Geneve encapsulation for load balancing. This mode is less efficient than DSR but can be used on platforms that do not support DSR.
-    dsrDispatch: opt
-    acceleration: best-effort
     algorithm: maglev
-
-  bpf:
-    masquerade: true
-    lbModeAnnotation: true
 
   hostFirewall:
     enabled: true
