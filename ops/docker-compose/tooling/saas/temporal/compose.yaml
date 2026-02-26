@@ -52,7 +52,7 @@ services:
     <<: *network
     depends_on:
       - temporal
-    image: temporalio/ui:2.44.1
+    image: temporalio/ui:2.47.0
     restart: on-failure
     container_name: temporal-ui
     environment:
