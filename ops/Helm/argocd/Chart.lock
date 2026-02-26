@@ -1,7 +1,7 @@
 dependencies:
 - name: argo-cd
   repository: https://argoproj.github.io/argo-helm
-  version: 9.3.7
+  version: 9.4.5
 - name: argocd-apps
   repository: https://argoproj.github.io/argo-helm
   version: 2.0.4
