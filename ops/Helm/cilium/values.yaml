@@ -5,6 +5,25 @@ cilium:
   k8sServiceHost: localhost
   k8sServicePort: 7445
 
+  routingMode: native
+  tunnelProtocol: geneve
+  # $> kubectl get nodes -o jsonpath='{.items[*].spec.podCIDR}'
+  ipv4NativeRoutingCIDR: "10.244.0.0/16"
+  enableIPv4Masquerade: true
+
+  loadBalancer:
+    mode: dsr
+    # dsrDispatch:
+    #  + opt - Use the most efficient load balancing method available on the platform. This is the default and recommended mode.
+    #  + geneve - Use Geneve encapsulation for load balancing. This mode is less efficient than DSR but can be used on platforms that do not support DSR.
+    dsrDispatch: opt
+    acceleration: best-effort
+    algorithm: maglev
+
+  bpf:
+    masquerade: true
+    lbModeAnnotation: true
+
   hostFirewall:
     enabled: true
 
@@ -18,8 +37,8 @@ cilium:
     burst: 100
 
   # auto-direct-node-routes cannot be used with tunneling. Packets must be routed through the tunnel device.
-  autoDirectNodeRoutes: false
-  annotateK8sNode: false
+  autoDirectNodeRoutes: true
+  annotateK8sNode: true
 
   # Roll out cilium agent pods automatically when ConfigMap is updated.
   rollOutCiliumPods: true

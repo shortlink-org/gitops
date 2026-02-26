@@ -1,7 +1,7 @@
 apiVersion: v2
-appVersion: "1.18.5"
+appVersion: "1.19.1"
 name: cilium
-version: 1.18.5
+version: 1.19.1
 kubeVersion: ">= 1.30.0 || >= v1.30.0-0"
 keywords:
   - networking
