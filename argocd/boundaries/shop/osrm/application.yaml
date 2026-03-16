@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./courier-emulation/ops/Helm/osrm
+    argocd.argoproj.io/manifest-generate-paths: ./osrm/ops/Helm/osrm
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -15,7 +15,7 @@ spec:
     namespace: shortlink-shop
     server: 'https://kubernetes.default.svc'
   source:
-    path: courier-emulation/ops/Helm/osrm
+    path: osrm/ops/Helm/osrm
     repoURL: 'https://github.com/shortlink-org/shop'
     targetRevision: HEAD
     helm:
