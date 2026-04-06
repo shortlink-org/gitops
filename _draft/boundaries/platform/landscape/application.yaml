@@ -8,7 +8,7 @@ metadata:
     argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/boundaries/platform/landscape
     argocd-image-updater.argoproj.io/image-list: landscape=registry.gitlab.com/shortlink-org/gitops/landscape:0.x.x
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/git-creds
-    argocd-image-updater.argoproj.io/git-repository: git@github.com:shortlink-org/argocd.git
+    argocd-image-updater.argoproj.io/git-repository: git@github.com:shortlink-org/gitops.git
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

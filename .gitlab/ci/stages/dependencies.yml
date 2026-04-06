@@ -54,7 +54,7 @@ istio:crd:
     include:
       - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
         inputs:
-          kube_context: shortlink-org/argocd:${PROVIDER}
+          kube_context: shortlink-org/gitops:${PROVIDER}
           applyset:     istio
           manifest:     https://raw.githubusercontent.com/istio/istio/refs/heads/master/manifests/charts/base/files/crd-all.gen.yaml
     strategy: depend
