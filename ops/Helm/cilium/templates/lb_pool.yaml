@@ -1,3 +1,4 @@
+{{- if .Values.cilium.l2announcements.enabled }}
 apiVersion: cilium.io/v2
 kind: CiliumLoadBalancerIPPool
 metadata:
@@ -9,3 +10,4 @@ spec:
   serviceSelector:
     matchLabels:
       gateway.networking.k8s.io/gateway-name: external-gateway
+{{- end }}

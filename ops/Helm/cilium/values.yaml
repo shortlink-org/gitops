@@ -5,45 +5,35 @@ cilium:
   k8sServiceHost: localhost
   k8sServicePort: 7445
 
-  routingMode: native
+  routingMode: tunnel
   tunnelProtocol: geneve
-  # $> kubectl get nodes -o jsonpath='{.items[*].spec.podCIDR}'
-  ipv4NativeRoutingCIDR: "10.244.0.0/16"
-  enableIPv4Masquerade: true
-
-  loadBalancer:
-    algorithm: maglev
 
   hostFirewall:
-    enabled: true
+    enabled: false
 
   cni:
     # Without it, Cilium will delete the Istio-CNI files that sidecars (or ztunnel) need, breaking pod networking.
     exclusive: false
 
   # Increase rate limit when doing L2 announcements
-  k8sClientRateLimit:
-    qps: 50
-    burst: 100
-
-  # auto-direct-node-routes cannot be used with tunneling. Packets must be routed through the tunnel device.
-  autoDirectNodeRoutes: true
-  annotateK8sNode: true
+  # k8sClientRateLimit:
+  #   qps: 50
+  #   burst: 100
 
   # Roll out cilium agent pods automatically when ConfigMap is updated.
   rollOutCiliumPods: true
 
+  bpf:
+    masquerade: true
+
+  policyEnforcementMode: default
+
   # Announce IPs from services' `.status.loadbalancer.ingress` field (automatically assigned by LB-IPAM).
   l2announcements:
-    enabled: true
-
-  # Announce manually assigned IPs from services' `.spec.externalIPs` field
-  externalIPs:
-    enabled: true
+    enabled: false
 
   socketLB:
     enabled: true
-
     hostNamespaceOnly: true
 
   ipam:

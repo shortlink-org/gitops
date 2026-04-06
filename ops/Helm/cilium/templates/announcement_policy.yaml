@@ -1,3 +1,4 @@
+{{- if .Values.cilium.l2announcements.enabled }}
 apiVersion: cilium.io/v2alpha1
 kind: CiliumL2AnnouncementPolicy
 metadata:
@@ -11,3 +12,4 @@ spec:
 
   interfaces:
     - ens18
+{{- end }}
