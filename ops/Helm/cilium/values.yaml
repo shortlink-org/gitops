@@ -28,9 +28,9 @@ cilium:
 
   policyEnforcementMode: default
 
-  # Announce IPs from services' `.status.loadbalancer.ingress` field (automatically assigned by LB-IPAM).
+  # LB IPAM + L2 на том же IP, что и нода, даёт конфликт; при одном публичном IP не используем.
   l2announcements:
-    enabled: true
+    enabled: false
 
   socketLB:
     enabled: true
