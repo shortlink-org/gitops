@@ -5,8 +5,8 @@ namespace:create:
     name: alpine/k8s:1.35.3
     entrypoint: [ "" ]
   script:
-    - kubectl create namespace argocd
-    - kubectl label 
+    - kubectl --context=shortlink-org/argocd:${PROVIDER} create namespace argocd
+    - kubectl --context=shortlink-org/argocd:${PROVIDER} label 
       --overwrite ns argocd pod-security.kubernetes.io/enforce=privileged 
                             pod-security.kubernetes.io/enforce-version=latest 
                             istio-injection=enabled
@@ -29,6 +29,7 @@ dockerfile:
     - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
     - chmod +x kubectl
     - ./kubectl create secret generic regcred
+      --context=shortlink-org/argocd:${PROVIDER}
       --from-file=.dockerconfigjson=/root/.docker/config.json
       --type=kubernetes.io/dockerconfigjson
   allow_failure: true
