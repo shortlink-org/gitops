@@ -8,7 +8,7 @@ spec:
   config:
     replicas: 1
     datastoreEngine: postgres
-    image: ghcr.io/authzed/spicedb:v1.48.0
+    image: ghcr.io/authzed/spicedb:v1.51.0
   secretName: shortlink-spicedb-config
   patches:
     - kind: Deployment
