@@ -78,9 +78,8 @@ argo-cd:
             name: argo-workflows-sso
             key: client-secret
 
-    securityContext:
-      runAsUser: 1000
-      runAsNonRoot: true
+    containerSecurityContext:
+      runAsNonRoot: false
 
     resources:
       limits:
