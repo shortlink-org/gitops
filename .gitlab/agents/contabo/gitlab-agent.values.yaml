@@ -1,0 +1,2 @@
+# helm: -f .gitlab/agents/contabo/gitlab-agent.values.yaml (token still --set config.token)
+replicas: 1
