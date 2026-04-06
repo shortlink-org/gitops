@@ -65,3 +65,25 @@ istio:crd:
   needs: [ ]
   rules:
     - when: manual
+
+################################################################################
+# GATEWAY API · CRDs for HTTPRoute / Gateway (e.g. Argo CD server route)
+################################################################################
+gateway-api:crd:
+  stage: dependencies
+
+  trigger:
+    include:
+      - component: $CI_SERVER_FQDN/shortlink-org/gitlab-templates/crd@main
+        inputs:
+          kube_context: shortlink-org/gitops:${PROVIDER}
+          applyset:     gateway-api
+          manifest:     https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.5.1/standard-install.yaml
+    strategy: depend
+    forward:
+      pipeline_variables: true
+      yaml_variables: true
+
+  needs: [ ]
+  rules:
+    - when: manual
