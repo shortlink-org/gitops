@@ -31,6 +31,8 @@ spec:
   template:
     metadata:
       name: 'shortlink-link-{{.branch}}-{{.number}}'
+      annotations:
+        argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=true
     spec:
       project: shortlink
       source:
@@ -47,11 +49,19 @@ spec:
         name: ''
         namespace: argocd
         server: 'https://kubernetes.default.svc'
+      ignoreDifferences:
+        - group: kyverno.io
+          kind: ClusterPolicy
+          jqPathExpressions:
+            - .spec.rules[] | select(.name|test("autogen-."))
       syncPolicy:
         automated:
           prune: true
           allowEmpty: true
           selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true
         managedNamespaceMetadata:
           labels:
             istio-injection: enabled
@@ -63,8 +73,3 @@ spec:
             chaos-mesh.org/inject: enabled
   syncPolicy:
     preserveResourcesOnDeletion: true
-    ignoreDifferences:
-      - group: kyverno.io
-        kind: ClusterPolicy
-        jqPathExpressions:
-          - .spec.rules[] | select(.name|test("autogen-."))

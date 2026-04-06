@@ -6,6 +6,7 @@ metadata:
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
     argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/addons/security/kyverno
+    argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=true
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -27,7 +28,7 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      - Replace=true
+      - ServerSideApply=true
       - ApplyOutOfSyncOnly=true
       - PruneLast=true
       - PrunePropagationPolicy=foreground

@@ -315,6 +315,8 @@ argo-cd:
 
       statusbadge.enabled: true
 
+      # Server-side diff (см. также аннотации compare-options на Application / ApplicationSet)
+      # https://argo-cd.readthedocs.io/en/stable/user-guide/diff-strategies/
       controller.diff.server.side: "true"
 
       exec.enabled: "true"
