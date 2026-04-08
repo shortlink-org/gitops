@@ -40,7 +40,7 @@ services:
     <<: *network
     depends_on:
       - redpanda
-    image: docker.redpanda.com/redpandadata/console:v3.6.0
+    image: docker.redpanda.com/redpandadata/console:v3.7.1
     container_name: console
     init: true
     entrypoint: /bin/sh
