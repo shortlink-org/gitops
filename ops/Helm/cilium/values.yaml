@@ -26,15 +26,13 @@ cilium:
   bpf:
     masquerade: true
 
-  policyEnforcementMode: default
-
   # LB IPAM + L2 на том же IP, что и нода, даёт конфликт; при одном публичном IP не используем.
   l2announcements:
     enabled: false
 
   socketLB:
     enabled: true
-    # hostNamespaceOnly: true
+    hostNamespaceOnly: true
 
   ipam:
     mode: kubernetes
