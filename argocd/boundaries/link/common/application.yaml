@@ -32,6 +32,7 @@ spec:
         # TODO: tuning https://kubernetes.io/docs/concepts/security/pod-security-admission/
         pod-security.kubernetes.io/enforce: privileged
         pod-security.kubernetes.io/enforce-version: latest
+        shortlink-org/trust-bundle: enabled
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
