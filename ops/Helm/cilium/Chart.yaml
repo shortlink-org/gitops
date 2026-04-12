@@ -13,7 +13,7 @@ type: application
 deprecated: false
 dependencies:
   - name: cilium
-    version: 1.19.2
+    version: 1.19.1
     repository: https://helm.cilium.io/
     condition: cilium.enabled
     tags:

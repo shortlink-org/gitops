@@ -6,6 +6,7 @@ metadata:
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
     argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/addons/gateway/istio-gateway
+    argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=true
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
@@ -29,6 +30,7 @@ spec:
       - CreateNamespace=true
       - ServerSideApply=true
       - ApplyOutOfSyncOnly=true
+      - RespectIgnoreDifferences=true
     retry:
       limit: 2
       backoff:
@@ -36,10 +38,6 @@ spec:
         maxDuration: 3m0s
         factor: 2
   ignoreDifferences:
-    - group: istio.io
-      kind: ClusterPolicy
-      jqPathExpressions:
-        - .spec.rules[] | select(.name|test("autogen-."))
     - group: kyverno.io
       kind: ClusterPolicy
       jqPathExpressions:

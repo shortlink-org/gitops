@@ -5,8 +5,8 @@ cilium:
   k8sServiceHost: localhost
   k8sServicePort: 7445
 
-  routingMode: tunnel
-  tunnelProtocol: geneve
+  #routingMode: tunnel
+  #tunnelProtocol: geneve
 
   hostFirewall:
     enabled: false
@@ -34,15 +34,20 @@ cilium:
 
   socketLB:
     enabled: true
-    hostNamespaceOnly: true
+    # hostNamespaceOnly: true
 
   ipam:
     mode: kubernetes
 
   gatewayAPI:
-    enabled: true
+    enabled: false
+    # Рекомендации Talos для Gateway API вместе с kube-proxy-free
+    enableAlpn: true
+    enableAppProtocol: true
+    # hostNetwork на Cilium Gateway трогает сетевой стек ноды; у части VPS/Talos ломает доступ к 6443/50000 после старта агента.
+    # Внешний вход у вас через Istio Gateway — Cilium Gateway на hostNetwork не обязателен.
     hostNetwork:
-      enabled: true
+      enabled: false
 
   securityContext:
     capabilities:
@@ -113,6 +118,12 @@ cilium:
 
   hubble:
     enabled: true
+
+    # method=helm uses Helm lookup() against the API during install/upgrade; it fails if :6443 is slow or unreachable.
+    # cronJob generates certs in-cluster (cilium-certgen Job) and does not need a live API during template render.
+    tls:
+      auto:
+        method: cronJob
 
     listenAddress: ":4244"
 
