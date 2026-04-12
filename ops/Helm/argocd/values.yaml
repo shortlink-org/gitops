@@ -168,10 +168,10 @@ argo-cd:
               value: https://github.com/argoproj-labs/argocd-extension-metrics/releases/download/v1.0.3/extension.tar.gz
             - name: EXTENSION_CHECKSUM_URL
               value: https://github.com/argoproj-labs/argocd-extension-metrics/releases/download/v1.0.3/extension_checksums.txt
-        - name: shortlink-extension-docs
-          env:
-            - name: EXTENSION_URL
-              value: https://github.com/shortlink-org/gitops/raw/main/boundaries/platform/argocd-extension-docs/ui/dist/extension.tar
+        # - name: shortlink-extension-docs
+        #   env:
+        #     - name: EXTENSION_URL
+        #       value: https://github.com/shortlink-org/gitops/raw/main/boundaries/platform/argocd-extension-docs/ui/dist/extension.tar
 
   repoServer:
     replicas: 1
