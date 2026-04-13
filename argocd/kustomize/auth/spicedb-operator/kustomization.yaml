@@ -19,8 +19,14 @@ patches:
       kind: Namespace
       name: spicedb-operator
     patch: |-
-      $patch: delete
       apiVersion: v1
       kind: Namespace
       metadata:
         name: spicedb-operator
+        annotations:
+          argocd.argoproj.io/sync-wave: "-1"
+        labels:
+          istio-injection: enabled
+          kubernetes.io/metadata.name: spicedb-operator
+          pod-security.kubernetes.io/enforce: privileged
+          pod-security.kubernetes.io/enforce-version: latest
