@@ -15,6 +15,18 @@ images:
 
 patches:
   - target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: spicedbclusters.authzed.com
+    patch: |-
+      apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      metadata:
+        name: spicedbclusters.authzed.com
+        annotations:
+          argocd.argoproj.io/sync-options: ServerSideApply=true
+  - target:
       version: v1
       kind: Namespace
       name: spicedb-operator

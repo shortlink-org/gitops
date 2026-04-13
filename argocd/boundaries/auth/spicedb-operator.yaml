@@ -24,7 +24,6 @@ spec:
       allowEmpty: true
       selfHeal: true
     syncOptions:
-      - ServerSideApply=true
       - ApplyOutOfSyncOnly=true
     retry:
       limit: 2
