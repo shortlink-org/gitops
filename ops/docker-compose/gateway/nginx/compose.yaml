@@ -3,7 +3,7 @@ services:
   nginx:
     depends_on:
       - default_backend
-    image: nginx:1.29-alpine-otel
+    image: nginx:1.30-alpine-otel
     container_name: nginx
     init: true
     environment:
@@ -22,7 +22,7 @@ services:
       - ./ops/docker-compose/gateway/nginx/conf/templates:/etc/nginx/templates
 
   default_backend:
-    image: nginx:1.29-alpine
+    image: nginx:1.30-alpine
     container_name: default_backend
     init: true
     networks:
