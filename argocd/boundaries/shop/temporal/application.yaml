@@ -22,8 +22,7 @@ spec:
       releaseName: temporal
       valueFiles:
         - values.yaml
-        - cassandra.values.yaml
-        - elasticsearch.values.yaml
+        - postgres.values.yaml
   syncPolicy:
     automated:
       prune: true
