@@ -1,6 +1,9 @@
 cilium:
   enabled: true
 
+  # Schedules earlier under node CPU pressure or CNI churn (e.g. alongside metrics-server).
+  priorityClassName: system-node-critical
+
   kubeProxyReplacement: true
   k8sServiceHost: localhost
   k8sServicePort: 7445
@@ -15,10 +18,14 @@ cilium:
     # Without it, Cilium will delete the Istio-CNI files that sidecars (or ztunnel) need, breaking pod networking.
     exclusive: false
 
-  # Increase rate limit when doing L2 announcements
-  # k8sClientRateLimit:
-  #   qps: 50
-  #   burst: 100
+  # Kubernetes client watch/list throttle: higher QPS reduces agent backlog under pod churn (kube-proxy-free).
+  k8sClientRateLimit:
+    qps: 50
+    burst: 100
+
+  # Agent API limiter for CNI ADD (PUT /endpoint/{id}). Defaults (~0.5/s) often return 429 under churn;
+  # max-wait-duration lets requests wait longer in the queue. https://docs.cilium.io/en/stable/configuration/api-rate-limiting/
+  apiRateLimit: "endpoint-create=rate-limit:4/s,rate-burst:24,parallel-requests:12,max-wait-duration:60s,auto-adjust:true"
 
   # Roll out cilium agent pods automatically when ConfigMap is updated.
   rollOutCiliumPods: true
@@ -26,7 +33,7 @@ cilium:
   bpf:
     masquerade: true
 
-  # LB IPAM + L2 на том же IP, что и нода, даёт конфликт; при одном публичном IP не используем.
+  # LB IPAM + L2 announcements on the same IP as the node conflict; disabled for single public IP.
   l2announcements:
     enabled: false
 
@@ -37,13 +44,17 @@ cilium:
   ipam:
     mode: kubernetes
 
+  # Shards endpoint state into CiliumEndpointSlice CRs (less apiserver churn than one CiliumEndpoint per identity).
+  ciliumEndpointSlice:
+    enabled: true
+
   gatewayAPI:
     enabled: false
-    # Рекомендации Talos для Gateway API вместе с kube-proxy-free
+    # Talos / kube-proxy-free friendly defaults when Gateway API is enabled later.
     enableAlpn: true
     enableAppProtocol: true
-    # hostNetwork на Cilium Gateway трогает сетевой стек ноды; у части VPS/Talos ломает доступ к 6443/50000 после старта агента.
-    # Внешний вход у вас через Istio Gateway — Cilium Gateway на hostNetwork не обязателен.
+    # Cilium Gateway hostNetwork touches the node stack; on some VPS/Talos setups it breaks 6443/50000 after the agent starts.
+    # Ingress is via Istio Gateway; Cilium Gateway hostNetwork is not required here.
     hostNetwork:
       enabled: false
 
@@ -83,6 +94,8 @@ cilium:
 
   operator:
     replicas: 1
+
+    priorityClassName: system-cluster-critical
 
     rollOutPods: true
 
