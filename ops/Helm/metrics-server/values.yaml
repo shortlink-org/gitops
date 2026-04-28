@@ -1,12 +1,44 @@
 metrics-server:
   enabled: true
 
+  # Pod network → node:10250 often fails on Talos/Cilium; hostNetwork fixes kubelet scrape.
+  # Timeout to InternalIP:10250: often unroutable advertised IP (public + no hairpin). Talos:
+  # machine.kubelet.nodeIP.validSubnets → private/reachable subnet (multihoming / kubelet node IP).
+  # With hostNetwork, secure-port must not be 10250 (kubelet uses that on the host).
+  # Avoid 4443 if the node already binds it (scheduler: "didn't have free ports").
+  hostNetwork:
+    enabled: true
+  containerPort: 10443
+  # RollingUpdate schedules a second pod before the old one exits → host port clash on single-node.
+  updateStrategy:
+    type: Recreate
+
   defaultArgs:
     - --cert-dir=/tmp
     - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
-    - --kubelet-use-node-status-port
-    - --metric-resolution=15s
+    - --metric-resolution=60s
+    - --kubelet-request-timeout=45s
     - --kubelet-insecure-tls
+
+  # /readyz calls SubjectAccessReview; default probe timeout 1s loses to slow/misconfigured webhooks.
+  readinessProbe:
+    httpGet:
+      path: /readyz
+      port: https
+      scheme: HTTPS
+    initialDelaySeconds: 20
+    periodSeconds: 10
+    failureThreshold: 5
+    timeoutSeconds: 10
+  livenessProbe:
+    httpGet:
+      path: /livez
+      port: https
+      scheme: HTTPS
+    initialDelaySeconds: 60
+    periodSeconds: 30
+    failureThreshold: 5
+    timeoutSeconds: 10
 
   metrics:
     enabled: true
