@@ -34,21 +34,6 @@ spec:
           shared_preload_libraries: pg_stat_statements,auto_explain,pgaudit
           pgmonitor_bgw.dbname: postgres,spicedb
           pgmonitor_bgw.role: "postgres"
-  backups:
-    pgbackrest:
-      metadata:
-        annotations:
-          sidecar.istio.io/inject: "false"
-      repos:
-        - name: repo1
-          volume:
-            volumeClaimSpec:
-              storageClassName: local-path
-              accessModes:
-                - "ReadWriteOnce"
-              resources:
-                requests:
-                  storage: 1Gi
   monitoring:
     pgmonitor:
       exporter:
