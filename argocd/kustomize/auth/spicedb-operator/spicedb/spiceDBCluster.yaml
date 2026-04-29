@@ -3,7 +3,8 @@ kind: SpiceDBCluster
 metadata:
   name: shortlink
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    # After PostgresCluster (wave 1): needs spicedb-postgres-pguser-spicedb secret.
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   config:
     replicas: 1

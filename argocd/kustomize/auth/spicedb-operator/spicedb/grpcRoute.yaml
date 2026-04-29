@@ -2,6 +2,9 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: GRPCRoute
 metadata:
   name: spicedb-grpc
+  annotations:
+    # After SpiceDBCluster (wave 2): backendRefs target the cluster Service.
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   parentRefs:
     - group: gateway.networking.k8s.io
