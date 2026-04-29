@@ -88,6 +88,13 @@ spec:
             spec:
               containers:
                 - name: migrate
+                  resources:
+                    requests:
+                      memory: "64Mi"
+                      cpu: "25m"
+                    limits:
+                      memory: "256Mi"
+                      cpu: "100m"
                   env:
                     - name: SPICEDB_DATASTORE_CONN_URI
                       valueFrom:
