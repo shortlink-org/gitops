@@ -3,7 +3,7 @@ kind: SpiceDBCluster
 metadata:
   name: shortlink
   annotations:
-    # After PostgresCluster (wave 1): needs spicedb-postgres-pguser-spicedb secret.
+    # After shared PostgresCluster (wave 1): needs shortlink-postgres-pguser-spicedb secret.
     argocd.argoproj.io/sync-wave: "2"
 spec:
   config:
@@ -59,7 +59,7 @@ spec:
                     - name: SPICEDB_DATASTORE_CONN_URI
                       valueFrom:
                         secretKeyRef:
-                          name: spicedb-postgres-pguser-spicedb
+                          name: shortlink-postgres-pguser-spicedb
                           key: uri
 
                     - name: SPICEDB_DISPATCH_CACHE_METRICS
@@ -99,5 +99,5 @@ spec:
                     - name: SPICEDB_DATASTORE_CONN_URI
                       valueFrom:
                         secretKeyRef:
-                          name: spicedb-postgres-pguser-spicedb
+                          name: shortlink-postgres-pguser-spicedb
                           key: uri

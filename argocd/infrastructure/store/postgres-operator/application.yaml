@@ -48,3 +48,39 @@ spec:
       name: crunchy-postgres-exporter
       jqPathExpressions:
         - .spec.podMetricsEndpoints[] | select(.action)
+    - kind: Secret
+      name: shortlink-postgres-pguser-admin
+      jqPathExpressions:
+        - .data
+    - kind: Secret
+      name: shortlink-postgres-pguser-grafana
+      jqPathExpressions:
+        - .data
+    - kind: Secret
+      name: shortlink-postgres-pguser-kratos
+      jqPathExpressions:
+        - .data
+    - kind: Secret
+      name: shortlink-postgres-pguser-shop
+      jqPathExpressions:
+        - .data
+    - kind: Secret
+      name: shortlink-postgres-pguser-oms
+      jqPathExpressions:
+        - .data
+    - kind: Secret
+      name: shortlink-postgres-pguser-delivery
+      jqPathExpressions:
+        - .data
+    - kind: Secret
+      name: shortlink-postgres-pguser-temporal
+      jqPathExpressions:
+        - .data
+    - kind: Secret
+      name: shortlink-postgres-pguser-spicedb
+      jqPathExpressions:
+        - .data
+    - kind: Secret
+      name: shortlink-postgres-pguser-partman
+      jqPathExpressions:
+        - .data

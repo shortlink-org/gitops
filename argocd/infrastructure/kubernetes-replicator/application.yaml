@@ -1,27 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: shortlink-shop-common
+  name: kubernetes-replicator
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-sync-succeeded.slack: gitops
-    argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/common
+    argocd.argoproj.io/manifest-generate-paths: ./ops/Helm/addons/kubernetes-replicator
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: shortlink
   destination:
     name: ''
-    namespace: shortlink-shop
+    namespace: kubernetes-replicator
     server: 'https://kubernetes.default.svc'
   source:
-    path: ops/Helm/common
-    repoURL: 'https://github.com/shortlink-org/shop'
+    path: ops/Helm/addons/kubernetes-replicator
+    repoURL: 'https://github.com/shortlink-org/helm'
     targetRevision: HEAD
     helm:
+      releaseName: kubernetes-replicator
       valueFiles:
         - values.yaml
-        - redis.values.yaml
   syncPolicy:
     automated:
       prune: true
@@ -29,11 +29,8 @@ spec:
       selfHeal: true
     managedNamespaceMetadata:
       labels:
-        istio-injection: enabled
-        # TODO: tuning https://kubernetes.io/docs/concepts/security/pod-security-admission/
         pod-security.kubernetes.io/enforce: privileged
         pod-security.kubernetes.io/enforce-version: latest
-        shortlink-org/trust-bundle: enabled
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
@@ -49,7 +46,3 @@ spec:
       kind: ClusterPolicy
       jqPathExpressions:
         - .spec.rules[] | select(.name|test("autogen-."))
-    - kind: Secret
-      name: shortlink-postgres-pguser-grafana
-      jqPathExpressions:
-        - .data

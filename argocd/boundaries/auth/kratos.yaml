@@ -56,10 +56,10 @@ spec:
       jqPathExpressions:
         - .spec.rules[] | select(.name|test("autogen-."))
     - kind: Secret
-      name: kratos-postgres-pguser-grafana
+      name: shortlink-postgres-pguser-grafana
       jqPathExpressions:
         - .data
     - kind: Secret
-      name: kratos-postgres-pguser-kratos
+      name: shortlink-postgres-pguser-kratos
       jqPathExpressions:
         - .data
