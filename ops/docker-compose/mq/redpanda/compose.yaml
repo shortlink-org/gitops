@@ -10,7 +10,7 @@ services:
   redpanda:
     <<: *network
     # NOTE: Please use the latest version here!
-    image: docker.redpanda.com/redpandadata/redpanda:v26.1.6
+    image: docker.redpanda.com/redpandadata/redpanda:v26.2.2
     container_name: redpanda
     init: true
     restart: always
