@@ -9,7 +9,7 @@ services:
 
   cassandra:
     <<: *network
-    image: cassandra:5.0.8
+    image: cassandra:5.0.9
     restart: on-failure
     container_name: cassandra
     init: true
