@@ -9,7 +9,7 @@ services:
 
   traefik:
     <<: *network
-    image: traefik:v3.6
+    image: traefik:v3.7
     profiles:
       - gateway
     container_name: traefik
