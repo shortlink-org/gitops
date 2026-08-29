@@ -10,7 +10,7 @@ services:
 
   redis:
     <<: *network
-    image: redis:8.6-alpine
+    image: redis:8.10-alpine
     init: true
     restart: always
     container_name: redis
