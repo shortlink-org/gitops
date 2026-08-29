@@ -9,7 +9,7 @@ services:
 
   nats:
     <<: *network
-    image: nats:2.12-alpine
+    image: nats:2.14-alpine
     entrypoint: "/gnatsd -DV"
     hostname: nats-server
     container_name: nats
