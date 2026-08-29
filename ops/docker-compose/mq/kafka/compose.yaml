@@ -9,7 +9,7 @@ services:
 
   kafka-connect:
     <<: *network
-    image: confluentinc/cp-kafka-connect:8.2.0
+    image: confluentinc/cp-kafka-connect:8.3.1
     container_name: kafka-connect
     init: true
     restart: always
