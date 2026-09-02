@@ -9,7 +9,7 @@ services:
 
   couchbase:
     <<: *network
-    image: couchbase:8.0.1
+    image: couchbase:8.0.3
     restart: on-failure
     container_name: couchbase
     ports:
